@@ -1,0 +1,49 @@
+<div class="login-page" ng-controller="loginController">
+  <div id="page" class="page login">
+      <!-- page begins -->
+      <div class="login-wrapper">
+          <!-- Logo section begins -->
+          <div class="float login-logo">
+              <a href="#/">&nbsp;</a>
+          </div>
+          <!-- Logo section ends -->
+
+          <!-- Authentication message begins -->
+          <!-- <div class="login-message" ng-show="loginError">
+              <a class="dismiss" href="" ng-click="close();">&nbsp;</a>
+              <span ng-bind="loginMessage"></span>
+          </div> -->
+          <!-- Authentication message ends -->
+
+          <!-- Login form begins -->
+          <div class="float login-area">
+              <!-- <div class="float" ng-show="oneLoginBoolean">
+                  <a href="javascript:void(0)" ng-click="oneLogin();">One Login</a>
+                  <br/><br/><br/>
+              </div> -->
+              <div class="login-form">
+                  <!-- <form novalidate> -->
+                      <div class="field-row username-field">
+                          <input type="text" id="login-username" [(ngModel)]="username" name="username" class="login-field login-username" placeholder="Username or email" />
+                      </div>
+                      <div class="field-row password-field">
+                          <input type="password" id="login-password" [(ngModel)]="password" name="password" class="login-field login-password" placeholder="Password" />
+                      </div>
+                      <div class="submit-row">
+                          <button type="submit" id="login-submit" class="login-submit" (click)="logIn();">&nbsp;</button>
+                      </div>
+                  <!-- </form> -->
+              </div>
+              <!-- <div class="login-forgot">
+                  <a href="#/forgot">forgot password?</a>
+              </div> -->
+          </div>
+          <!-- Login form ends -->
+          <!-- {{appVersion}} -->
+          <!-- <div ng-show="isLoading">
+              <img src="images/ajax-loader.gif" width="20" height="20" /> Authenticating...Please wait...
+          </div> -->
+      </div>
+  </div>
+  <!-- page ends -->
+</div>

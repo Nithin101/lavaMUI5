@@ -1,0 +1,107 @@
+var config_module = angular.module('myApp.config', []);
+var config_data = {
+    'GENERAL_CONFIG': {
+        'APP_NAME': 'LAVA',
+        'APP_VERSION': 'v2.19',
+        'APP_ID': '26',
+        'API_ACCESS_KEY': 'Bearer ee6308b0-1ed7-454d-9662-954ca175a4c4',
+        'SERVICE_URL': ' https://devcc.lava.ai/LavaMarketer/api/v1/',
+        'TEAM_NAME': 'kings', // kings,bulls,...
+        'LANDING_PAGE': 'home' //falcons and home
+    },
+    'REALTIME_CONFIG': {
+        'ANALYTICS_APP_ID': '1', // ADD APP ID OF THE ANALYTICS APP(LAVA DEMO APP)
+        'INTERVAL': '10', // seconds
+        'SATISFICATION_INTERVAL': '30', // seconds
+        'INCIDENT_INTERVAL': '30', // seconds
+        'MAP_THRESHOLD': 0,
+        'ANALYTICS_INTERVAL': '30' // seconds
+    },
+    'ONE_LOGIN': {
+        'show': true
+    },
+    'SHOW_DASHBOARD': {
+        'CEP': false,
+        'FAN_360': false,
+        'GAMEDAY': false,
+        'GLOBAL': false,
+        'MOMENT': false,
+        'ABTEST': false,
+        'ENGAGEMENT': false,
+        'SWEEPSTAKES': false,
+        'SPOTFIRE_2015': false,
+        'SPOTFIRE_2016': false,
+        'FALCONS': true
+    },
+    'DISABLE_DASHBOARD': {
+        'CEP': false,
+        'FAN_360': false,
+        'GAMEDAY': false,
+        'GLOBAL': false,
+        'MOMENT': false,
+        'ABTEST': false,
+        'ENGAGEMENT': false,
+        'SWEEPSTAKES': false,
+        'SPOTFIRE_2015': false,
+        'SPOTFIRE_2016': false,
+        'FALCONS': false
+    },
+    'SHOW_DESIGN': {
+        'MOMENTS': true,
+        'PROFILES': true,
+        'ENGAGEMENTS': true
+    },
+    'SHOW_RESOURCES': {
+        'GAMEDAY_VIP': false,
+        'GEO_LOCATION': true,
+        'HOLD_TABLE': false,
+        'REBATE_TABLE': false,
+        'CONTENT_MANAGEMENT': true
+    },
+    'APP_CONFIG': {
+        '0': {
+            'app_name': 'Lava Demo App',
+            'app_id': '1'
+        }
+    },
+    'SEGMENT_CONFIG': {
+        '0': {
+            'label': 'Ticketmaster',
+            'id_type': 'tm',
+            'id_object_path': 'ticketmaster',
+            'id_key': 'id',
+            'show': true
+        },
+        '1': {
+            'label': 'SSB',
+            'id_type': 'ssb',
+            'id_object_path': 'crm_customer',
+            'id_key': 'id',
+            'show': true
+        },
+        '2': {
+            'label': 'Lava User IDs',
+            'id_type': 'lava',
+            'id_object_path': '',
+            'id_key': 'user_id',
+            'show': true
+        },
+        '3': {
+            'label': 'Player IDs',
+            'id_type': 'player',
+            'id_object_path': '',
+            'id_key': 'id',
+            'show': true
+        },
+        '4': {
+            'label': 'Test',
+            'id_type': 'test',
+            'id_object_path': '',
+            'id_key': 'id',
+            'show': false
+        }
+    }
+};
+angular.forEach(config_data, function (key, value) {
+    config_module.constant(value, key);
+});
