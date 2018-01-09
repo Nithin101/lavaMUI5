@@ -4,27 +4,40 @@ import { RouterModule, Routes } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { LavaService } from './lava.service';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { isActiveNav } from './Directives/general.directive';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'home', component: HomeComponent , data : { title:'Home'} }
 ]
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    HeaderComponent,
+    SidebarComponent,
+    isActiveNav
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    HttpModule
+    HttpModule,
+    ConfirmationPopoverModule.forRoot({
+      focusButton: 'confirm'
+    }),
   ],
   providers: [CookieService, 
              LavaService

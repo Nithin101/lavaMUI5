@@ -1,0 +1,91 @@
+/* Header */
+
+.header {
+    background: url(../../assets/images/header-bg.png) no-repeat center;
+    position: relative;
+    z-index: 1040;
+}
+
+.header:after {
+    content: '';
+    width: 100%;
+    height: 34px;
+    position: absolute;
+    background: url(../../assets/images/header_drop_shadow.png) repeat-x left bottom;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+}
+
+.header-container {
+    float: left;
+    width: 100%;
+    padding: 0 0 17px;
+    background: url(../../assets/images/header-repeat.png) repeat-x center;
+}
+
+.logo-area {
+    float: left;
+    width: 50%;
+    padding: 0 0px;
+}
+
+.nav-icon {
+    float: left;
+    width: 20px;
+    height: 14px;
+    margin: 18px 2px;
+    background: url(../../assets/images/header_hb_icon.png) no-repeat center;
+    text-decoration: none !important;
+}
+
+.nav-icon.close-menu {
+    background: url(../../assets/images/header_close_icon.png) no-repeat center;
+}
+
+.logo {
+    float: left;
+    width: 76px;
+    height: 20px;
+    margin: 15px 25px;
+}
+
+.sidebar {
+    float: left;
+    width: 26px;
+    height: 38px;
+    margin: 10px 0 2px 28px;
+    text-indent: -9999em;
+    /* background: url(../../assets/images/sidebar-menu.png) no-repeat center 0; */
+}
+
+.sidebar.active {
+    background-position: center -38px;
+}
+
+.user-area {
+    float: left;
+    width: 50%;
+}
+
+.dropdown {
+    float: right;
+    position: relative;
+    padding: 17px 30px;
+}
+
+.dropdown a {
+    display: block;
+}
+
+.dropdown .badge {
+    position: absolute;
+    right: 17px;
+    top: 11px;
+    font-size: 10px;
+    line-height: 9px;
+    width: 14px;
+    height: 14px;
+    padding: 2px;
+    font-weight: 400;
+}

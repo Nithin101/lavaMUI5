@@ -1,4 +1,8 @@
-<div class="login-page" ng-controller="loginController">
+<div class="login-page">
+        <button id="confirm-popup" class="btn btn-default" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" [confirmText]="confirmText" [cancelText]="cancelText"
+        [placement]="top" (confirm)="confirmClicked = true" (cancel)="cancelClicked = true" confirmButtonType="danger" cancelButtonType="default"(click)="confirmClicked = false; cancelClicked = false"[appendToBody]="true">
+        Show on top
+      </button>
   <div id="page" class="page login">
       <!-- page begins -->
       <div class="login-wrapper">
@@ -43,6 +47,7 @@
           <!-- <div ng-show="isLoading">
               <img src="images/ajax-loader.gif" width="20" height="20" /> Authenticating...Please wait...
           </div> -->
+       
       </div>
   </div>
   <!-- page ends -->
