@@ -1,0 +1,570 @@
+/* Sidebar */
+
+.sidebar-menu {
+    float: left;
+    width: 130px;
+    height: calc(100% - 50px);
+    min-height: 850px;
+    margin-top: 50px;
+    text-align: center;
+    background: #F2F2F2;
+    z-index: 1030;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.sidebar-menu>span {
+    position: fixed;
+    bottom: 5px;
+    left: 10px;
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.sidebar-menu.shown {
+    height: 100%;
+}
+
+.sidebar-menu ul.nav-menu {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-menu ul.nav-menu>li {
+    float: left;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    height: 87px;
+}
+
+.sidebar-menu ul.nav-menu>li>a:before {
+    border-top: 1px solid #f2f2f2;
+    bottom: -1px;
+    content: " ";
+    height: 1px;
+    left: -5px;
+    position: absolute;
+    width: 14px;
+}
+
+.sidebar-menu ul.nav-menu>li>a:after {
+    border-top: 1px solid #f2f2f2;
+    bottom: -1px;
+    content: " ";
+    height: 1px;
+    right: 0;
+    position: absolute;
+    width: 14px;
+}
+
+.sidebar-menu ul.nav-menu>li>a {
+    display: block;
+    margin: 0;
+    padding: 53px 0 21px;
+    font-size: 12px;
+    color: #86949f;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-left: 5px solid #EFF1F2;
+    border-bottom: 1px solid #cccccc;
+    opacity: 1;
+    text-decoration: none;
+    position: relative;
+}
+
+
+/*.sidebar-menu ul.nav-menu>li a:hover,
+.sidebar-menu ul.nav-menu>li.hovered,
+.sidebar-menu ul.nav-menu>li.active {
+	background: #ffffff;
+	border-color: #ffffff;
+}
+
+.sidebar-menu ul.nav-menu>li:hover:before,
+.sidebar-menu ul.nav-menu>li:focus:before,
+.sidebar-menu ul.nav-menu>li.hovered:before,
+.sidebar-menu ul.nav-menu>li.active:before,
+.sidebar-menu ul.nav-menu>li:hover:after,
+.sidebar-menu ul.nav-menu>li:focus:after,
+.sidebar-menu ul.nav-menu>li.hovered:after,
+.sidebar-menu ul.nav-menu>li.active:after {
+	border-color: #ffffff;
+}*/
+
+.sidebar-menu ul.nav-menu>li.has-submenu>a+img {
+    display: none;
+}
+
+.sidebar-menu ul.nav-menu>li.has-submenu>a:hover+img,
+.sidebar-menu ul.nav-menu>li.has-submenu>a:focus+img,
+.sidebar-menu ul.nav-menu>li.has-submenu.hovered>a+img,
+.sidebar-menu ul.nav-menu>li.has-submenu.active>a+img {
+    display: inline-block;
+    position: absolute;
+    left: 113px;
+    top: calc(50% - 6px);
+}
+
+.sidebar-menu ul.nav-menu>li>a:hover,
+.sidebar-menu ul.nav-menu>li>a:focus,
+.sidebar-menu ul.nav-menu>li.hovered>a,
+.sidebar-menu ul.nav-menu>li.active>a {
+    color: #4C4C4C;
+    font-weight: 400;
+    border-left: 5px solid #00dbff;
+    padding-top: 54px;
+    background-color: #ffffff !important;
+    border-top-color: #ffffff !important;
+    border-bottom-color: #f2f2f2 !important;
+    margin-top: -1px;
+}
+
+.sidebar-menu ul.nav-menu li.home a {
+    background-image: url(../../assets/images/sidebar/home.png);
+    background-repeat: no-repeat;
+    background-position: center 20px;
+}
+
+.sidebar-menu ul.nav-menu li.manage a {
+    background-image: url(../../assets/images/sidebar/manage.png);
+    background-repeat: no-repeat;
+    background-position: center 21px;
+}
+
+.sidebar-menu ul.nav-menu li.resources a {
+    background-image: url(../../assets/images/sidebar/resources.png);
+    background-repeat: no-repeat;
+    background-position: center 21px;
+}
+
+.sidebar-menu ul.nav-menu li.design a {
+    background-image: url(../../assets/images/sidebar/design.png);
+    background-repeat: no-repeat;
+    background-position: center 21px;
+}
+
+.sidebar-menu ul.nav-menu li.analyze a {
+    background-image: url(../../assets/images/sidebar/analyze.png);
+    background-repeat: no-repeat;
+    background-position: center 21px;
+}
+
+.sidebar-menu ul.nav-menu li.home a:hover,
+.sidebar-menu ul.nav-menu li.home a:focus,
+.sidebar-menu ul.nav-menu li.home.hovered a,
+.sidebar-menu ul.nav-menu li.home.active a {
+    background-image: url(../../assets/images/sidebar/home_hover.png);
+    background-repeat: no-repeat;
+    background-position: center 21px;
+}
+
+.sidebar-menu ul.nav-menu li.manage a:hover,
+.sidebar-menu ul.nav-menu li.manage a:focus,
+.sidebar-menu ul.nav-menu li.manage.hovered a,
+.sidebar-menu ul.nav-menu li.manage.active a {
+    background-image: url(../../assets/images/sidebar/manage_hover.png);
+    background-repeat: no-repeat;
+    background-position: center 22px;
+}
+
+.sidebar-menu ul.nav-menu li.resources a:hover,
+.sidebar-menu ul.nav-menu li.resources a:focus,
+.sidebar-menu ul.nav-menu li.resources.hovered a,
+.sidebar-menu ul.nav-menu li.resources.active a {
+    background-image: url(../../assets/images/sidebar/resources_hover.png);
+    background-repeat: no-repeat;
+    background-position: center 22px;
+}
+
+.sidebar-menu ul.nav-menu li.design a:hover,
+.sidebar-menu ul.nav-menu li.design a:focus,
+.sidebar-menu ul.nav-menu li.design.hovered a,
+.sidebar-menu ul.nav-menu li.design.active a {
+    background-image: url(../../assets/images/sidebar/design_hover.png);
+    background-repeat: no-repeat;
+    background-position: center 22px;
+}
+
+.sidebar-menu ul.nav-menu li.analyze a:hover,
+.sidebar-menu ul.nav-menu li.analyze a:focus,
+.sidebar-menu ul.nav-menu li.analyze.hovered a,
+.sidebar-menu ul.nav-menu li.analyze.active a {
+    background-image: url(../../assets/images/sidebar/analyze_hover.png);
+    background-repeat: no-repeat;
+    background-position: center 22px;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu {
+    display: none;
+    background: #EFF1F2;
+    border: 1px solid #e1e5e9;
+    text-align: left;
+    position: absolute;
+    left: 129px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.sidebar-menu ul.nav-menu>li.analyze>ul.submenu {
+    top: 50%;
+    transform: translateY(-50%);
+    /* top: -64px; */
+    width: 312px;
+}
+
+.sidebar-menu ul.nav-menu>li.analyze>ul.submenu.fixed-top-menu {
+    transform: none;
+    top: -64px;
+}
+
+.sidebar-menu ul.nav-menu>li.design>ul.submenu {
+    top: 50%;
+    transform: translateY(-50%);
+    /* top: -42px; */
+    width: 178px;
+}
+
+.sidebar-menu ul.nav-menu>li.resources>ul.submenu {
+    top: 50%;
+    transform: translateY(-50%);
+    /* top: -42px; */
+    width: 280px;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li {
+    height: 55px;
+    width: 100%;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.disable-menu {
+    position: relative;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.disable-menu:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(241, 243, 244, 0.5);
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.disable-menu:hover::after {
+    content: "Contact your admin to enable this feature";
+    font-size: 12px;
+    line-height: 1;
+    color: #86949f;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 22px 10px 18px 22px;
+    background: rgba(241, 243, 244, 1);
+    top: 1px;
+    bottom: 2px;
+    cursor: pointer;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li a {
+    display: block;
+    position: relative;
+    font-size: 12px;
+    line-height: 1;
+    color: #86949f;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 22px 10px 21px 65px;
+    border-bottom: 1px solid #e1e5e9;
+    border-left: 3px solid #EFF1F2;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li:last-child a {
+    border-bottom: 0 none;
+    /*padding-bottom: 22px;*/
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu>li>a:before {
+    border-top: 1px solid #eff1f2;
+    bottom: -1px;
+    content: " ";
+    height: 1px;
+    left: -3px;
+    position: absolute;
+    width: 14px;
+    z-index: 1;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu>li>a:after {
+    border-top: 1px solid #eff1f2;
+    bottom: -1px;
+    content: " ";
+    height: 1px;
+    right: 0;
+    position: absolute;
+    width: 14px;
+    z-index: 1;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.user-settings a {
+    background: url(../../assets/images/sidebar/user-settings.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.vip-settings a {
+    background: url(../../assets/images/sidebar/gameday-vip.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.beacon-settings a {
+    background: url(../../assets/images/sidebar/beacon-settings.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geofence-settings a {
+    background: url(../../assets/images/sidebar/geofence-settings.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geolocation-settings a {
+    background: url(../../assets/images/sidebar/geoloc-settings.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.edit-stores a {
+    background: url(../../assets/images/sidebar/edit-stores.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.content-management a {
+    background: url(../../assets/images/sidebar/content-management.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.inventory a {
+    background: url(../../assets/images/sidebar/inventory.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.hold-table a {
+    background: url(../../assets/images/sidebar/hold-table.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.rebate-table a {
+    background: url(../../assets/images/sidebar/rebate-table.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.moments a {
+    background: url(../../assets/images/sidebar/moments.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.segments a {
+    background: url(../../assets/images/sidebar/segments.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.engagements a {
+    background: url(../../assets/images/sidebar/engagements.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.cep a {
+    background: url(../../assets/images/sidebar/cep.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.fan360 a {
+    background: url(../../assets/images/sidebar/fan-360.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gameday a {
+    background: url(../../assets/images/sidebar/game-day.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.global a {
+    background: url(../../assets/images/sidebar/global-platform.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gaming a {
+    background: url(../../assets/images/sidebar/slot-machin-icon.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.masterpass a {
+    background: url(../../assets/images/sidebar/mastercard-icon.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.abtest a {
+    background: url(../../assets/images/sidebar/ab-icon.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.spotfire a {
+    background: url(../../assets/images/sidebar/game-day.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.sweepstakes a {
+    background: url(../../assets/images/sidebar/global-platform.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.falcons a {
+    background: url(../../assets/images/sidebar/global-platform.png) no-repeat 25px center;
+}
+
+
+/*.sidebar-menu ul.nav-menu>li>ul.submenu>li:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu>li:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu>li.active {
+	background: #ffffff;
+	border-left: 3px solid #00dbff;
+}*/
+
+.sidebar-menu ul.nav-menu>li>ul.submenu>li>a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu>li>a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu>li.active>a {
+    border-left: 3px solid #00dbff;
+    background-color: #ffffff !important;
+    border-bottom-color: #eff1f2 !important;
+    color: #4C4C4C;
+    font-weight: 400;
+    z-index: 1;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.moments a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.moments a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.moments.active a {
+    background: url(../../assets/images/sidebar/moments_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.segments a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.segments a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.segments.active a {
+    background: url(../../assets/images/sidebar/segments_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.engagements a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.engagements a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.engagements.active a {
+    background: url(../../assets/images/sidebar/engagements_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.user-settings a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.user-settings a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.user-settings.active a {
+    background: url(../../assets/images/sidebar/user-settings_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.vip-settings a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.vip-settings a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.vip-settings.active a {
+    background: url(../../assets/images/sidebar/gameday-vip_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.beacon-settings a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.beacon-settings a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.beacon-settings.active a {
+    background: url(../../assets/images/sidebar/beacon-settings_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geofence-settings a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geofence-settings a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geofence-settings.active a {
+    background: url(../../assets/images/sidebar/geofence-settings_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geolocation-settings a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geolocation-settings a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.geolocation-settings.active a {
+    background: url(../../assets/images/sidebar/geoloc-settings_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.edit-stores a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.edit-stores a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.edit-stores.active a {
+    background: url(../../assets/images/sidebar/edit-stores_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.content-management a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.content-management a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.content-management.active a {
+    background: url(../../assets/images/sidebar/content-management_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.inventory a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.inventory a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.inventory.active a {
+    background: url(../../assets/images/sidebar/inventory_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.hold-table a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.hold-table a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.hold-table.active a {
+    background: url(../../assets/images/sidebar/hold-table_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.rebate-table a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.rebate-table a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.rebate-table.active a {
+    background: url(../../assets/images/sidebar/rebate-table_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.cep a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.cep a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.cep.active a {
+    background: url(../../assets/images/sidebar/cep_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.fan360 a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.fan360 a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.fan360.active a {
+    background: url(../../assets/images/sidebar/fan-360_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gameday a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gameday a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gameday.active a {
+    background: url(../../assets/images/sidebar/game-day_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.global a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.global a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.global.active a {
+    background: url(../../assets/images/sidebar/global-platform_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.falcons a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.falcons a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.falcons.active a {
+    background: url(../../assets/images/sidebar/global-platform_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gaming a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gaming a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.gaming.active a {
+    background: url(../../assets/images/sidebar/slot-machin-icon_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.masterpass a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.masterpass a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.masterpass.active a {
+    background: url(../../assets/images/sidebar/mastercard-icon_hover.png) no-repeat 20px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.abtest a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.abtest a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.abtest.active a {
+    background: url(../../assets/images/sidebar/ab-icon_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.spotfire a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.spotfire a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.spotfire.active a {
+    background: url(../../assets/images/sidebar/game-day_hover.png) no-repeat 25px center;
+}
+
+.sidebar-menu ul.nav-menu>li>ul.submenu li.sweepstakes a:hover,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.sweepstakes a:focus,
+.sidebar-menu ul.nav-menu>li>ul.submenu li.sweepstakes.active a {
+    background: url(../../assets/images/sidebar/global-platform_hover.png) no-repeat 25px center;
+}

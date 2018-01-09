@@ -30,45 +30,39 @@ export class LavaService {
         .then(this.extractData)
         .catch(this.handleError);
     }
-    
+
+    doLoginContinue(params) {
+        return this.http.post(this.baseURL + 'login/continue', params, this.setHeaders()) 
+        .toPromise()
+        .then(this.extractData)
+        .catch(this.handleError);
+    }
 
     private extractData(res: Response) {
 		let body = res.json();
-		return body || { };
+            return body || { };
+
 	}
 
 	private handleError (error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
-        
         let errMsg: {};
-        console.log('json', error.json());
-        // console.log(typeof(error._body));
-
-       
-        if( typeof(error._body) == 'string'){
+        try{
+            errMsg = {
+                msg: error.json(),
+                code: error.status
+            };
+            console.log('object');
+        }
+        catch(e){
             console.log('string');
             errMsg = {
                 msg: error._body,
                 code: error.status
             };
-        }
-        else{
-            // console.log(error.json());
-            // const body = error.json()
-            errMsg = {
-                msg: error._body.json(),
-                code: error.status
-            };
+            // errMsg = errMsg.json();
         }
         console.log(errMsg);
-		// if (error instanceof Response) {
-		// 	const body = error.json() || '';
-		// 	const err = body.error || JSON.stringify(body);
-		// 	errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-		// } else {
-		// 	errMsg = error.message ? error.message : error.toString();
-		// }
-
 		console.error(errMsg);
 		return Promise.reject(errMsg);
     }
