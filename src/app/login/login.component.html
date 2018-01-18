@@ -1,8 +1,17 @@
 <div class="login-page">
-        <button id="confirm-popup" class="btn btn-default" mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" [confirmText]="confirmText" [cancelText]="cancelText"
-        [placement]="top" (confirm)="confirmClicked = true" (cancel)="cancelClicked = true" confirmButtonType="danger" cancelButtonType="default"(click)="confirmClicked = false; cancelClicked = false"[appendToBody]="true">
-        Show on top
-      </button>
+    <button id='confirm-login'
+    class="btn btn-default"
+    mwlConfirmationPopover
+    [popoverTitle]="popoverTitle"
+    [popoverMessage]="popoverMessage"
+    placement="bottom"
+    (confirm)='continueWithLogin()'
+    (cancel)="cancelClicked = true" 
+    [customTemplate]="customTemplate"
+    [appendToBody] = true
+    [(isOpen)]="isOpen">
+    Click me!
+  </button>
   <div id="page" class="page login">
       <!-- page begins -->
       <div class="login-wrapper">
@@ -13,13 +22,14 @@
           <!-- Logo section ends -->
 
           <!-- Authentication message begins -->
-          <!-- <div class="login-message" ng-show="loginError">
-              <a class="dismiss" href="" ng-click="close();">&nbsp;</a>
-              <span ng-bind="loginMessage"></span>
-          </div> -->
-          <!-- Authentication message ends -->
+          <div class="login-message" *ngIf="loginError">
+                <a class="dismiss" href="" ng-click="close();">&nbsp;</a>
+                <span>{{loginMessage}}</span>
+            </div>
+            <!-- Authentication message ends -->
 
           <!-- Login form begins -->
+
           <div class="float login-area">
               <!-- <div class="float" ng-show="oneLoginBoolean">
                   <a href="javascript:void(0)" ng-click="oneLogin();">One Login</a>
@@ -50,5 +60,20 @@
        
       </div>
   </div>
+  <ng-template #customTemplate let-options="options">
+      <div class="confirm-template">
+      <div class="confirm-modal modal">
+        <div class="modal-header warning-header">
+        <button type="button" class="close" (click)="cancelLogin()"></button>
+
+        <h3 class="modal-title modal-warning warning-title ">Warning</h3></div>
+        <div class="modal-body warning-text">{{popoverMessage}}</div>
+        <div class="modal-footer warning-footer">
+        <button ng-if="data.cancel" class="cancel-default-button" (click)="cancelLogin()">Cancel</button>
+        <button class="btn btn-primary btn-cancel" id="confirm-button" autofocus (click)="continueWithLogin()">Yes</button>
+        </div>
+    </div>
+</div>
+ </ng-template>
   <!-- page ends -->
 </div>

@@ -14,10 +14,12 @@ import { LavaService } from './lava.service';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { isActiveNav } from './Directives/general.directive';
+import { MySharedService } from './Service/MySharedService';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Login' } },
-  { path: 'home', component: HomeComponent , data : { title:'Home'} }
+  { path: 'home', component: HomeComponent , data : { title:'Home'} },
+  { path: '#/home', component: HomeComponent , data : { title:'Home'} },
 ]
 
 
@@ -28,19 +30,20 @@ const appRoutes: Routes = [
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
-    isActiveNav
+    isActiveNav,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpModule,
-    ConfirmationPopoverModule.forRoot({
-      focusButton: 'confirm'
-    }),
+    ConfirmationPopoverModule .forRoot({
+      confirmButtonType: 'danger'
+      }),
   ],
   providers: [CookieService, 
-             LavaService
+             LavaService,
+             MySharedService,
   ],
   bootstrap: [AppComponent]
 })

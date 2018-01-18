@@ -69,6 +69,7 @@
      outline: 0 none;
      padding: 0;
      vertical-align: baseline;
+     box-sizing: border-box;
  }
  
  article,
@@ -14508,3 +14509,66 @@
          height: calc(50% + 140px);
      }
  }
+
+
+
+
+
+
+
+
+ /* MUI5 css */
+ .popover{
+     width: 420px;
+     top: 100px !important;
+     position: absolute;
+     margin: auto;
+     left: 0 !important;
+     right: 0 !important;
+     z-index: 9999;
+ }
+ h3.popover-title.popover-header {
+    background: url(/assets/images/overlay/icon-warning.png) no-repeat 0 0;
+    padding-left: 30px;
+}
+.confirm-modal {
+    margin: 50px auto 0;
+    overflow: hidden;
+    width: 402px;
+    text-align: center;
+    display: block;
+    left: 0 !important;
+    right: 0;
+    background: #fff;
+    position: relative;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    padding: 0;
+}
+.modal-header{
+    text-align: left;
+}
+.modal-footer{
+    text-align: right;
+}
+.confirm-template {
+    height: 100vh;
+    width: 100%;
+    top: 0!important;
+    position: relative;
+    left: 0 !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.confirm-modal button {
+    cursor: pointer;
+}
