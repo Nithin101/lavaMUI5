@@ -6,7 +6,7 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
   <section id="content-section" class="content content-home">
-        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+        <ngx-loading class="overly-spinner" [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
           <!-- page content begins -->
           <div class="dashboard-wrapper">
               <div class="dashboard-box">
@@ -47,7 +47,7 @@
                                         <span class="ticket-created">Created by {{item.owner_name}}</span>
                                     </div>
                                     <div class="moment-box-content">
-                                        <div class="season-ticket-graph" pie-graph percent="{{item.percentage_completion}}">
+                                        <div class="season-ticket-graph" pie-graph [percent]="item.percentage_completion">
                                             <div *ngIf="item.rule_status != 'suspend'">
                                                 <strong>{{item.percentage_completion}}<span>%</span></strong>
                                                 <span>COMPLETED</span>
@@ -83,8 +83,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div *ngIf="topRules.length == 0" class="no-top-moments">
                                 <img src="images/home/no_moment.png" />
                                 <span>Nothing to display yet.</span>
@@ -113,7 +111,8 @@
                           </div>
                       </div>
                       <!-- <perfect-scrollbar class="activity-list" wheel-propagation="true" wheel-speed="1" min-scrollbar-length="20" suppress-scroll-x="true"> -->
-                            <div class="activity-item activity-type-{{activityList.type}}" *ngFor="let activityList of activityLists | filter : searchText">
+                            <perfect-scrollbar class="activity-list" [config]="config">
+                                <div class="activity-item activity-type-{{activityList.type}}" *ngFor="let activityList of activityLists | filter : searchText">
                                     <span class="activity-date">
                                         <span>{{activityList.date | date:'h:mm a'}}</span>
                                     <span>{{activityList.date | date:'MM/dd/yy '}}</span>
@@ -123,6 +122,7 @@
                                         <a *ngIf="activityList.attach == 'image'" href="javascript:void(0);"><img src="images/home/attach-image.png" /></a>
                                     </span>
                                 </div>
+                            </perfect-scrollbar>
                       <!-- </perfect-scrollbar> -->
                   </div>
                   <!-- Activity feed ends -->

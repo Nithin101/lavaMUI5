@@ -8,7 +8,7 @@ import { RouterModule, Routes, Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public loading = false;
   constructor(
     private _lavaService: LavaService,
     private router: Router
@@ -19,16 +19,19 @@ export class HomeComponent implements OnInit {
   }
 
   loadActivityFeeds = function () {
+    this.loading = true;
     this.topRules = [];
     this._lavaService.getHomeData().then(data => {
+      console.log(data);
 
       this.momentstatus = data.rule_status;
       this.topRules = data.top_rules;
-      let emptyMoment = 4 - this.topRules.length;
+      this.emptyMoment = 4 - this.topRules.length;
       this.emptyMomentArray = [];
-      for (let i = 0; i < emptyMoment; i++) {
+      for (let i = 0; i < this.emptyMoment; i++) {
         this.emptyMomentArray.push(i);
       }
+      this.loading = false;
     },
       error => {
         console.log(error);
@@ -37,6 +40,7 @@ export class HomeComponent implements OnInit {
     this._lavaService.getActivityFeed().then(data => {
 
       this.activityLists = data;
+      this.loading = false;
 
     },
       error => {

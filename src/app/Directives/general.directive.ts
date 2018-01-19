@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer,Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Renderer,Renderer2 ,Input} from '@angular/core';
 import { RouterModule, Routes, Router, NavigationStart } from '@angular/router';
 import * as d3 from "d3";
 
@@ -39,8 +39,8 @@ export class isActiveNav {
         console.log(this.el.nativeElement.parentNode);
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true);
         renderer2.addClass(this.el.nativeElement.parentNode, 'active');
-        renderer2.addClass(this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'), 'active');
-        console.log(this.el.nativeElement.querySelectorAll('.has-submenu'));
+        // renderer2.addClass(this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'), 'active');
+        // console.log(this.el.nativeElement.querySelectorAll('.has-submenu'));
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', this.el.nativeElement.parentNode.classList.contains('.has-submenu'))
     } 
     else if (cp1 || cp2 ) {
@@ -80,15 +80,16 @@ export class editSrc {
   selector: '[pie-graph]'
 })
 export class pieGraph {
- 
+  @Input() percent: number;
   constructor(private el: ElementRef) {}
   ngOnInit() {
+   
     let mySvg = d3.select(this.el.nativeElement)
       .append("svg")
       .attr("width", 263)
       .attr("height", 117);
 
-    let percent = 50;
+    let percent = this.percent;
 
     let ratio = percent / 100;
 
