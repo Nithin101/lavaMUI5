@@ -14332,6 +14332,7 @@ h3.incidents-name {
 .confirm-modal button {
     cursor: pointer;
 }
+<<<<<<< HEAD
 =======
   .moment-qualifier.always-group-0>.moment-box>.prioritized-groups>.qualifier-priority-group:nth-child(4)::before,
   .moment-qualifier.always-group-1>.moment-box>.prioritized-groups>.qualifier-priority-group:nth-child(4)::before,
@@ -14340,3 +14341,11 @@ h3.incidents-name {
   }
 }
 >>>>>>> Stashed changes
+=======
+.show {
+    display: block !important;
+}
+.submenu{
+    display: block !important;
+}
+>>>>>>> login

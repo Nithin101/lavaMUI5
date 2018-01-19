@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Ng2FilterPipeModule  } from 'ng2-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     }),
     Ng2SearchPipeModule,
     Ng2FilterPipeModule
+    NgbModule.forRoot()
   ],
   providers: [CookieService, 
              LavaService,
