@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { Ng2FilterPipeModule  } from 'ng2-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 
 
 
@@ -17,12 +18,10 @@ import { LavaService } from './lava.service';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { isActiveNav } from './Directives/general.directive';
-import { MySharedService } from './Service/MySharedService';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Login' } },
-  { path: 'home', component: HomeComponent , data : { title:'Home'} },
-  { path: '#/home', component: HomeComponent , data : { title:'Home'} },
+  { path: 'home', component: HomeComponent , data : { title:'Home'} }
 ]
 
 
@@ -33,7 +32,7 @@ const appRoutes: Routes = [
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
-    isActiveNav,
+    isActiveNav
   ],
   imports: [
     BrowserModule,
@@ -44,11 +43,14 @@ const appRoutes: Routes = [
       confirmButtonType: 'danger'
     }),
     Ng2SearchPipeModule,
-    Ng2FilterPipeModule
+    Ng2FilterPipeModule,
+    LoadingModule.forRoot({
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)', 
+     
+  })
   ],
   providers: [CookieService, 
-             LavaService,
-             MySharedService,
+             LavaService
   ],
   bootstrap: [AppComponent]
 })

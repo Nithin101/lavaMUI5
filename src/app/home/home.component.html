@@ -6,7 +6,7 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
   <section id="content-section" class="content content-home">
-      <!-- <treasure-overlay-spinner active='spinner.active'> -->
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
           <!-- page content begins -->
           <div class="dashboard-wrapper">
               <div class="dashboard-box">
@@ -40,35 +40,25 @@
                             </div>
                         </div>
                         <div class="top-moment-box">
-                            <div ng-if="topRules.length > 0" class="float">
+                            <div *ngIf="topRules.length > 0" class="float">
                                 <div class="single-moment-box ticket-offer" *ngFor="let item of topRules">
                                     <div class="moment-box-header">
                                         <h3>{{item.rule_name}}</h3>
                                         <span class="ticket-created">Created by {{item.owner_name}}</span>
                                     </div>
-                                    <!-- <div class="moment-box-content">
+                                    <div class="moment-box-content">
                                         <div class="season-ticket-graph" pie-graph percent="{{item.percentage_completion}}">
-                                            <div ng-if="item.rule_status != 'suspend'">
+                                            <div *ngIf="item.rule_status != 'suspend'">
                                                 <strong>{{item.percentage_completion}}<span>%</span></strong>
                                                 <span>COMPLETED</span>
                                             </div>
-                                            <div class="suspended-text" ng-if="item.rule_status == 'suspend'">
+                                            <div class="suspended-text" *ngIf="item.rule_status == 'suspend'">
                                                 <span>MOMENT SUSPENDED</span>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     
-                                    <!-- <div class="moment-box-content">
-                                        <div class="season-ticket-graph" pie-graph percent="{{item.percentage_completion}}">
-                                            <div ng-if="item.rule_status != 'suspend'">
-                                                <strong>{{item.percentage_completion}}<span>%</span></strong>
-                                                <span>COMPLETED</span>
-                                            </div>
-                                            <div class="suspended-text" ng-if="item.rule_status == 'suspend'">
-                                                <span>MOMENT SUSPENDED</span>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                    
                                     <div class="moment-box-footer">
                                         <span class="icon-start">{{ item.start_date | date : 'MMMM dd,yyyy'}}</span>
                                         <span class="icon-stop">{{ item.end_date | date : 'MMMM dd,yyyy'}}</span>
@@ -83,21 +73,23 @@
                                     </div>
 
                                 </div>
-                                <div ng-if="emptyMoment > 0" *ngFor="let item of emptyMomentArray" class="less-top-moment-box">
-                                    <div class="empty-single-moment">
-                                        <img src="/assets/images/home/no_moment.png" />
-                                        <span>Nothing to display yet.</span>
-                                        <span>create a moment.</span>
+                                <div *ngIf="emptyMoment > 0">
+                                    <div  *ngFor="let item of emptyMomentArray" class="less-top-moment-box">
+                                        <div class="empty-single-moment">
+                                            <img src="/assets/images/home/no_moment.png" />
+                                            <span>Nothing to display yet.</span>
+                                            <span>create a moment.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
 
-                            <!-- <div ng-if="topRules.length == 0" class="no-top-moments">
+                            <div *ngIf="topRules.length == 0" class="no-top-moments">
                                 <img src="images/home/no_moment.png" />
                                 <span>Nothing to display yet.</span>
                                 <span>create a moment.</span>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                   <!-- top moment ends-->
@@ -111,11 +103,11 @@
                           <div class="filter-by">
                               <span class="filter-category">Filter by</span>
                               <span>
-                                  <input id="filter-alert" type="checkbox" class="filter-feed filter-alert" [checked]="showme" (click)='functionAlert();' />
+                                  <input id="filter-alert" type="checkbox" class="filter-feed filter-alert" [checked]="showme" (click)='functionAlertMessage("alert");' />
                                   <label for="filter-alert"><span></span>Alerts</label>
                               </span>
                               <span>
-                                  <input id="filter-message" type="checkbox" class="filter-feed filter-message" [checked]="showmemessages" (click)='functionMessages();' />
+                                  <input id="filter-message" type="checkbox" class="filter-feed filter-message" [checked]="showmemessages" (click)='functionAlertMessage("message");' />
                                   <label for="filter-message"><span></span>Messages</label>
                               </span>
                           </div>

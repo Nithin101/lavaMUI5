@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadActivityFeeds = function () {
+    this.topRules = [];
     this._lavaService.getHomeData().then(data => {
 
       this.momentstatus = data.rule_status;
@@ -36,28 +37,23 @@ export class HomeComponent implements OnInit {
     this._lavaService.getActivityFeed().then(data => {
 
       this.activityLists = data;
-      // $rootScope.loginToken = data.token;
-      // $rootScope.internalID = data.user.internalId;
-      // this.getUserData();
+
     },
       error => {
         console.log(error);
 
       });
   }
-  functionAlert = function () {
-    this.showme = !this.showme;
-    this.showmemessages = false;
-    this.searchText = (this.showme == true) ? "alert" : "";
-
+  functionAlertMessage = function (text) {
+    if (text == "alert") {
+      this.showme = !this.showme;
+      this.showmemessages = false;
+      this.searchText = (this.showme == true) ? text : "";
+    } else if (text == "message") {
+      this.showmemessages = !this.showmemessages;
+      this.showme = false;
+      this.searchText = (this.showmemessages == true) ? text : "";
+    }
   }
-  functionMessages = function () {
-    this.showmemessages = !this.showmemessages;
-    this.showme = false;
-    this.searchText = (this.showmemessages == true) ? "message" : "";
-  }
-
-
-
 
 }
