@@ -22,8 +22,8 @@
               <li class="global">
                   <a tabindex="0" is-active-nav href="/global">Global platform dashboard</a>
               </li>
-              <li class="falcons" href="/falcons" (click)='submenuClick($event)'>
-                  <a tabindex="0" is-active-nav >Attendance dashboard</a>
+              <li class="falcons" (click)='submenuClick($event)'>
+                  <a tabindex="0" is-active-nav href="/falcons">Attendance dashboard</a>
               </li>
               <li class="gaming" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav href="/moment-dashboard">Moment dashboard</a>
@@ -67,7 +67,7 @@
       </li>
       <!-- Menu Design -->
       <li  class="resources has-submenu" (click)="menuclick($event, 'resource')">
-          <a tabindex="0" is-active-nav >Resources</a>
+          <a tabindex="0" is-active-nav href="javascript:void(0);" >Resources</a>
           <img src="../../assets/images/sidebar/submenu-arrow.png" />
           <ul class="submenu" *ngIf="resourcesMenu">
               <!--<li class="user-settings">

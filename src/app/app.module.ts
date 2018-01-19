@@ -45,7 +45,7 @@ const appRoutes: Routes = [
       confirmButtonType: 'danger'
     }),
     Ng2SearchPipeModule,
-    Ng2FilterPipeModule
+    Ng2FilterPipeModule,
     NgbModule.forRoot()
   ],
   providers: [CookieService, 
