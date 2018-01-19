@@ -13,17 +13,17 @@ export class LavaService {
 
     analyticID = 1;
 
-    setHeaders(){
-		let headers = new Headers({ 
-			'Access-Control-Allow-Origin': '*',
+    setHeaders() {
+        let headers = new Headers({
+            'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
             'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
             'Content-Type': 'application/json',
-            'Lava-Authorization':'Bearer ee6308b0-1ed7-454d-9662-954ca175a4c4',
+            'Lava-Authorization': 'Bearer ee6308b0-1ed7-454d-9662-954ca175a4c4',
             'App-Id': 26
         });
         let options = new RequestOptions({ headers: headers });
-                return options;
+        return options;
     }
     setHeadersWithToken(){
         let token = this._mySharedService.getData();
@@ -41,10 +41,10 @@ export class LavaService {
     }
 
     doLogin(params) {
-        return this.http.post(this.baseURL + 'login', params, this.setHeaders()) 
-        .toPromise()
-        .then(this.extractData)
-        .catch(this.handleError);
+        return this.http.post(this.baseURL + 'login', params, this.setHeaders())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
     }
 
     doLoginContinue(params) {
@@ -65,22 +65,22 @@ export class LavaService {
 
 
     private extractData(res: Response) {
-		let body = res.json();
-            return body || { };
+        let body = res.json();
+        return body || {};
 
-	}
+    }
 
-	private handleError (error: Response | any) {
+    private handleError(error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: {};
-        try{
+        try {
             errMsg = {
                 msg: error.json(),
                 code: error.status
             };
             console.log('object');
         }
-        catch(e){
+        catch (e) {
             console.log('string');
             errMsg = {
                 msg: error._body,
@@ -89,8 +89,21 @@ export class LavaService {
             // errMsg = errMsg.json();
         }
         console.log(errMsg);
-		console.error(errMsg);
-		return Promise.reject(errMsg);
+        console.error(errMsg);
+        return Promise.reject(errMsg);
     }
-    
+    // Home dashboard
+    getHomeData() {
+        return this.http.get(this.baseURL + 'rules/ruleStatistics/', this.setHeaders())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+    getActivityFeed() {
+        return this.http.get(this.baseURL + 'rules/activityFeed/', this.setHeaders())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
 }
