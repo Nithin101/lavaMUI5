@@ -14544,7 +14544,7 @@
     border-radius: 10px;
     -webkit-border-radius: 10px;
 }
-.close {
+.confirm-template .modal-header .close {
     float: right;
     font-size: 21px;
     font-weight: 700;
@@ -14554,9 +14554,12 @@
     filter: alpha(opacity=20);
     opacity: .2;
     padding: 0;
+    margin: -12px 0 0; 
 }
-.modal-header{
-    text-align: left;
+.confirm-template .modal-header {
+    display: block;
+    display:block;
+    display: block;
 }
 .modal-footer{
     text-align: right;
@@ -14577,4 +14580,20 @@
 }
 .submenu{
     display: block !important;
+}
+.menu-dropdown {
+    left: auto !important;
+    padding: 0;
+    border: 0px;
+    top: 52px !important;
+}
+.header-container .header-dropdown-menu {
+    background-color: transparent;
+    color: transparent;
+    padding: 0;
+}
+.header-container  .dropdown[_ngcontent-c2] {
+    float: right;
+    position: relative;
+    padding: 17px 18px;
 }
