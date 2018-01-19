@@ -9,38 +9,38 @@
       <li class="analyze has-submenu" (click)="menuclick($event,'analyze')">
           <a tabindex="0" is-active-nav href="javascript:void(0);">Analyze</a>
           <img src="../../assets/images/sidebar/submenu-arrow.png" />
-          <ul class="submenu" [ngClass]="{show:analyzeMenu == true}">
-              <li class="cep"  class="disable-menu'">
+          <ul class="submenu" *ngIf="analyzeMenu" >
+              <li class="cep" >
                   <a tabindex="0" is-active-nav  href="/cep">Customer engagement profile</a>
               </li>
-              <li class="fan360" class="disable-menu">
+              <li class="fan360">
                   <a tabindex="0" is-active-nav href="/fan360">Fast360 fan dashboard</a>
               </li>
-              <li class="gameday"  class="disable-menu">
+              <li class="gameday">
                   <a tabindex="0" is-active-nav href="/gameday">Game day dashboard</a>
               </li>
-              <li class="global" class="disable-menu':disableDashboard.GLOBAL">
+              <li class="global">
                   <a tabindex="0" is-active-nav href="/global">Global platform dashboard</a>
               </li>
-              <li class="falcons"  class="disable-menu">
-                  <a tabindex="0" is-active-nav href="/falcons">Attendance dashboard</a>
+              <li class="falcons" href="/falcons" (click)='submenuClick($event)'>
+                  <a tabindex="0" is-active-nav >Attendance dashboard</a>
               </li>
-              <li class="gaming"  class="disable-menu">
+              <li class="gaming" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav href="/moment-dashboard">Moment dashboard</a>
               </li>
-              <li class="abtest"  class="disable-menu">
+              <li class="abtest">
                   <a tabindex="0" is-active-nav href="/abtest-dashboard">AB Test dashboard</a>
               </li>
-              <li class="masterpass"  class="disable-menu">
+              <li class="masterpass" >
                   <a tabindex="0" is-active-nav href="/engagement-dashboard">Engagement dashboard</a>
               </li>
-              <li class="sweepstakes"  class="disable-menu">
+              <li class="sweepstakes">
                   <a tabindex="0" is-active-nav href="/sweepstakes">Sweepstakes dashboard</a>
               </li>
-              <li class="spotfire" class="disable-menu">
+              <li class="spotfire">
                   <a tabindex="0" is-active-nav href="/spotfire-2015">Spotfire 2015-2016 dashboard</a>
               </li>
-              <li class="spotfire"  class="disable-menu">
+              <li class="spotfire">
                   <a tabindex="0" is-active-nav href="/spotfire-2016">Spotfire 2016-2017 dashboard</a>
               </li>
           </ul>
@@ -50,39 +50,39 @@
           <a tabindex="0" is-active-nav href="#/manage">Manage</a>
       </li> -->
       <!-- Menu Manage -->
-      <li class="design has-submenu" (click)="menuclick($event)">
+      <li class="design has-submenu" (click)="menuclick($event, 'design')">
           <a tabindex="0" is-active-nav  href="javascript:void(0);">Design</a>
           <img src="../../assets/images/sidebar/submenu-arrow.png" />
-          <ul class="submenu">
-              <li class="moments">
+          <ul class="submenu" *ngIf="designMenu">
+              <li class="moments" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav href="/moments">Moments</a>
               </li>
-              <li class="segments" >
+              <li class="segments" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav href="/segments">Profiles</a>
               </li>
-              <li class="engagements" >
+              <li class="engagements" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav href="/engagements">Engagements</a>
               </li>
           </ul>
       </li>
       <!-- Menu Design -->
-      <li  class="resources has-submenu" (click)="menuclick($event)">
-          <a tabindex="0" is-active-nav  href="javascript:void(0);">Resources</a>
+      <li  class="resources has-submenu" (click)="menuclick($event, 'resource')">
+          <a tabindex="0" is-active-nav >Resources</a>
           <img src="../../assets/images/sidebar/submenu-arrow.png" />
-          <ul class="submenu">
+          <ul class="submenu" *ngIf="resourcesMenu">
               <!--<li class="user-settings">
                   <a tabindex="0" is-active-nav href="#/user-settings">User settings</a>
               </li>-->
-              <li class="vip-settings" >
+              <li class="vip-settings" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav   href="/gameday-vip">Game Day VIPs</a>
               </li>
-              <li class="geolocation-settings">
+              <li class="geolocation-settings" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav href="/geolocation-settings">Geo Location Settings</a>
               </li>
-              <li class="hold-table" >
+              <li class="hold-table" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav  href="/hold-settings">Hold Adjustment Tables</a>
               </li>
-              <li class="rebate-table">
+              <li class="rebate-table" (click)='submenuClick()'>
                   <a tabindex="0" is-active-nav href="/rebate-settings">Rebate Tables</a>
               </li>
               <!--<li class="beacon-settings">
@@ -94,7 +94,7 @@
               <li class="edit-stores">
                   <a tabindex="0" is-active-nav href="#/edit-stores">Edit Stores, Brands, Categories</a>
               </li>-->
-              <li class="content-management">
+              <li class="content-management" (click)='submenuClick()'>
                   <a tabindex="0" href="/content-management" is-active-nav>Content management</a>
               </li>
               <!--<li class="inventory">

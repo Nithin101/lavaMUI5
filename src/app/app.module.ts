@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     ConfirmationPopoverModule .forRoot({
       confirmButtonType: 'danger'
       }),
+    NgbModule.forRoot()
   ],
   providers: [CookieService, 
              LavaService,

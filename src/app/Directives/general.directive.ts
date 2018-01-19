@@ -31,8 +31,8 @@ export class isActiveNav {
       var cp4 = this.router.url.includes("/engagement-perfomance/");
       var cp5 = this.router.url.includes("/abtest-perfomance/");
       var cp6 = this.router.url.includes("/broadcast");
-      
-      if ('#' + this.router.url === this.el.nativeElement.attributes['href'].value) {
+      console.log('native element',this.el.nativeElement);
+      if (this.router.url === this.el.nativeElement[0].attributes['href'].value) {
         console.log(this.el.nativeElement.parentNode);
         this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true)
         this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', this.el.nativeElement.parentNode.classList.contains('.has-submenu'))
