@@ -23,86 +23,87 @@
                           </div>
                       </div>
                       <div class="float moment-status-box">
-                          <!-- <div class="status-column column-{{$index}}" ng-repeat="item in momentstatus"> -->
-                              <!-- <h3>{{item.count}}</h3> -->
-                              <!-- <span>{{item.status_display_value}}</span> -->
-                              <!-- <a href="#/moments/?searchByStatus={{item.status_type}}"><img src="images/home/icon-next-arrow.png" /></a> -->
-                          <!-- </div> -->
+                          <div class="status-column column-{{index}}" *ngFor="let item of momentstatus let index=index">
+                              <h3>{{item.count}}</h3>
+                              <span>{{item.status_display_value}}</span>
+                              <a href="#/moments/?searchByStatus={{item.status_type}}"><img src="/assets/images/home/icon-next-arrow.png" /></a>
+                          </div>
                       </div>
                   </div>
                   <!-- moment status ends -->
 
                   <!-- top moment starts-->
-                  <!-- <div class="top-moment">
-                      <div class="float">
-                          <div class="page-title">
-                              <h2 class="top-moments-title">Top moments</h2>
-                          </div>
-                      </div>
-                      <div class="top-moment-box">
-                          <div ng-if="topRules.length > 0" class="float">
-                              <div class="single-moment-box ticket-offer" ng-repeat="item in topRules">
-                                  <div class="moment-box-header">
-                                      <h3>{{item.rule_name}}</h3>
-                                      <span class="ticket-created">Created by {{item.owner_name}}</span>
-                                  </div>
-                                  <div class="moment-box-content">
-                                      <div class="season-ticket-graph" pie-graph percent="{{item.percentage_completion}}">
-                                          <div ng-if="item.rule_status != 'suspend'">
-                                              <strong>{{item.percentage_completion}}<span>%</span></strong>
-                                              <span>COMPLETED</span>
-                                          </div>
-                                          <div class="suspended-text" ng-if="item.rule_status == 'suspend'">
-                                              <span>MOMENT SUSPENDED</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="moment-box-footer">
-                                      <span class="icon-start">{{ item.start_date | date : 'MMMM dd,yyyy'}}</span>
-                                      <span class="icon-stop">{{ item.end_date | date : 'MMMM dd,yyyy'}}</span>
-                                  </div>
-                                  <div class="box-overlay">
-                                      <div class="overlay-buttons">
-                                          <a href="#/view-moment/{{item.id}}" class="view-moment-button">
-                                              <img src="images/home/button_view.png" alt="View" />
-                                          </a> -->
+                  <div class="top-moment">
+                        <div class="float">
+                            <div class="page-title">
+                                <h2 class="top-moments-title">Top moments</h2>
+                            </div>
+                        </div>
+                        <div class="top-moment-box">
+                            <div ng-if="topRules.length > 0" class="float">
+                                <div class="single-moment-box ticket-offer" *ngFor="let item of topRules">
+                                    <div class="moment-box-header">
+                                        <h3>{{item.rule_name}}</h3>
+                                        <span class="ticket-created">Created by {{item.owner_name}}</span>
+                                    </div>
+                                    <!-- <div class="moment-box-content">
+                                        <div class="season-ticket-graph" pie-graph percent="{{item.percentage_completion}}">
+                                            <div ng-if="item.rule_status != 'suspend'">
+                                                <strong>{{item.percentage_completion}}<span>%</span></strong>
+                                                <span>COMPLETED</span>
+                                            </div>
+                                            <div class="suspended-text" ng-if="item.rule_status == 'suspend'">
+                                                <span>MOMENT SUSPENDED</span>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    
+                                    <!-- <div class="moment-box-content">
+                                        <div class="season-ticket-graph" pie-graph percent="{{item.percentage_completion}}">
+                                            <div ng-if="item.rule_status != 'suspend'">
+                                                <strong>{{item.percentage_completion}}<span>%</span></strong>
+                                                <span>COMPLETED</span>
+                                            </div>
+                                            <div class="suspended-text" ng-if="item.rule_status == 'suspend'">
+                                                <span>MOMENT SUSPENDED</span>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="moment-box-footer">
+                                        <span class="icon-start">{{ item.start_date | date : 'MMMM dd,yyyy'}}</span>
+                                        <span class="icon-stop">{{ item.end_date | date : 'MMMM dd,yyyy'}}</span>
+                                    </div>
+                                    <div class="box-overlay">
+                                        <div class="overlay-buttons">
+                                            <a href="#/view-moment/{{item.id}}" class="view-moment-button">
+                                                <img src="/assets/images/home/button_view.png" alt="View" />
+                                            </a>
+                                           
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div ng-if="emptyMoment > 0" *ngFor="let item of emptyMomentArray" class="less-top-moment-box">
+                                    <div class="empty-single-moment">
+                                        <img src="/assets/images/home/no_moment.png" />
+                                        <span>Nothing to display yet.</span>
+                                        <span>create a moment.</span>
+                                    </div>
+                                </div>
+                            </div>
 
 
-
-                                          <!--<a href="javascript:void(0);" ng-if="approverRole == true && item.rule_status == 'approved' || item.rule_status == 'live' || item.rule_status == 'finished'" ng-click='statusSuspend(item.id);item.rule_status="suspend";' class="suspend-button">
-                                              <img src="images/home/button_suspend.png" alt="Suspend" />
-                                          </a>
-                                          <a href="javascript:void(0);" ng-if="approverRole == true && item.rule_status == 'suspend'" ng-click='statusReactivate(item.id);item.rule_status="approved";' class="reactive-button">
-                                              <img src="images/home/button_reactivate.png" alt="Reactivate" />
-                                          </a>-->
-
-
-                                      <!-- </div>
-                                  </div>
-
-                              </div>
-                              <div ng-if="emptyMoment > 0" ng-repeat="item in emptyMomentArray" class="less-top-moment-box">
-                                  <div class="empty-single-moment">
-                                      <img src="images/home/no_moment.png" />
-                                      <span>Nothing to display yet.</span>
-                                      <span>create a moment.</span>
-                                  </div>
-                              </div>
-                          </div>
-
-
-                          <div ng-if="topRules.length == 0" class="no-top-moments">
-                              <img src="images/home/no_moment.png" />
-                              <span>Nothing to display yet.</span>
-                              <span>create a moment.</span> -->
-                              <!--<span>There are no Live Moments to display</span>-->
-                          <!-- </div>
-                      </div>
-                  </div> -->
+                            <!-- <div ng-if="topRules.length == 0" class="no-top-moments">
+                                <img src="images/home/no_moment.png" />
+                                <span>Nothing to display yet.</span>
+                                <span>create a moment.</span>
+                            </div> -->
+                        </div>
+                    </div>
                   <!-- top moment ends-->
 
                   <!-- Activity feed starts -->
-                  <!-- <div class="activity-feed">
+                  <div class="activity-feed">
                       <div class="float">
                           <div class="page-title">
                               <h2 class="activity-feed-title">Activity feed</h2>
@@ -110,28 +111,28 @@
                           <div class="filter-by">
                               <span class="filter-category">Filter by</span>
                               <span>
-                                  <input id="filter-alert" type="checkbox" class="filter-feed filter-alert" ng-checked="showme" ng-click='functionAlert();' />
+                                  <input id="filter-alert" type="checkbox" class="filter-feed filter-alert" [checked]="showme" (click)='functionAlert();' />
                                   <label for="filter-alert"><span></span>Alerts</label>
                               </span>
                               <span>
-                                  <input id="filter-message" type="checkbox" class="filter-feed filter-message" ng-checked="showmemessages" ng-click='functionMessages();' />
+                                  <input id="filter-message" type="checkbox" class="filter-feed filter-message" [checked]="showmemessages" (click)='functionMessages();' />
                                   <label for="filter-message"><span></span>Messages</label>
                               </span>
                           </div>
                       </div>
-                      <perfect-scrollbar class="activity-list" wheel-propagation="true" wheel-speed="1" min-scrollbar-length="20" suppress-scroll-x="true">
-                          <div class="activity-item activity-type-{{activityList.type}}" ng-repeat="activityList in activityLists | filter:searchText">
-                              <span class="activity-date">
-                                  <span>{{activityList.date | date:'h:mm a'}}</span>
-                              <span>{{activityList.date | date:'MM/dd/yy '}}</span>
-                              </span>
-                              <span class="activity-text" ng-bind="activityList.message">
-                                  <a ng-if="activityList.attach == 'file'" href="javascript:void(0);"><img src="images/home/attach-file.png" /></a>
-                                  <a ng-if="activityList.attach == 'image'" href="javascript:void(0);"><img src="images/home/attach-image.png" /></a>
-                              </span>
-                          </div>
-                      </perfect-scrollbar>
-                  </div> -->
+                      <!-- <perfect-scrollbar class="activity-list" wheel-propagation="true" wheel-speed="1" min-scrollbar-length="20" suppress-scroll-x="true"> -->
+                            <div class="activity-item activity-type-{{activityList.type}}" *ngFor="let activityList of activityLists | filter : searchText">
+                                    <span class="activity-date">
+                                        <span>{{activityList.date | date:'h:mm a'}}</span>
+                                    <span>{{activityList.date | date:'MM/dd/yy '}}</span>
+                                    </span>
+                                    <span class="activity-text" [innerHtml]="activityList.message">
+                                        <a *ngIf="activityList.attach == 'file'" href="javascript:void(0);"><img src="images/home/attach-file.png" /></a>
+                                        <a *ngIf="activityList.attach == 'image'" href="javascript:void(0);"><img src="images/home/attach-image.png" /></a>
+                                    </span>
+                                </div>
+                      <!-- </perfect-scrollbar> -->
+                  </div>
                   <!-- Activity feed ends -->
 
               </div>

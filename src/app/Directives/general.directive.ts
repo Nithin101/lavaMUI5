@@ -13,17 +13,17 @@ var $: any;
   selector: '[is-active-nav]'
 })
 export class isActiveNav {
-  constructor(private router:Router,
-              private el: ElementRef,
-              private renderer:Renderer) {
+  constructor(private router: Router,
+    private el: ElementRef,
+    private renderer: Renderer) {
     let urlSet;
-    
+
     renderer.setElementStyle(el.nativeElement, 'class', 'active');
     router.events.subscribe((val) => {
       urlSet = this.router.url;
       // console.log(urlSet) ;
-      
-      if(this.router.url){
+
+      if (this.router.url) {
         // console.log("app", this.el.nativeElement.attributes['href'].value) 
       var cp1 = this.router.url.includes("/moment/");
       var cp2 = this.router.url.includes("/view-moment/");
@@ -56,8 +56,8 @@ export class isActiveNav {
     }
     }
       // console.log("val", val);
-  });
-}
+    });
+  }
 
 }
 
@@ -65,7 +65,18 @@ export class isActiveNav {
   selector: '[editSrc]'
 })
 export class editSrc {
-  
-    constructor() { } 
-  
+
+  constructor() { }
+
+}
+
+@Directive({
+  selector: '[pie-graph]'
+})
+export class pieGraph {
+  constructor(
+    private el: ElementRef) {
+      console.log(el);
+
   }
+}
