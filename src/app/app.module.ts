@@ -49,6 +49,7 @@ const appRoutes: Routes = [
       backdropBackgroundColour: 'rgba(0,0,0,0.1)', 
      
   })
+    NgbModule.forRoot()
   ],
   providers: [CookieService, 
              LavaService
