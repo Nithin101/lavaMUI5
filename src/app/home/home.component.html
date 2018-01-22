@@ -10,7 +10,6 @@
           <!-- page content begins -->
           <div class="dashboard-wrapper">
               <div class="dashboard-box">
-
                   <!-- moment status starts -->
                   <div class="moments-status">
                       <div class="float">
@@ -58,7 +57,6 @@
                                         </div>
                                     </div>
                                     
-                                    
                                     <div class="moment-box-footer">
                                         <span class="icon-start">{{ item.start_date | date : 'MMMM dd,yyyy'}}</span>
                                         <span class="icon-stop">{{ item.end_date | date : 'MMMM dd,yyyy'}}</span>
@@ -71,7 +69,6 @@
                                            
                                         </div>
                                     </div>
-
                                 </div>
                                 <div *ngIf="emptyMoment > 0">
                                     <div  *ngFor="let item of emptyMomentArray" class="less-top-moment-box">
@@ -110,27 +107,24 @@
                               </span>
                           </div>
                       </div>
-                      <!-- <perfect-scrollbar class="activity-list" wheel-propagation="true" wheel-speed="1" min-scrollbar-length="20" suppress-scroll-x="true"> -->
-                            <perfect-scrollbar class="activity-list" [config]="config">
-                                <div class="activity-item activity-type-{{activityList.type}}" *ngFor="let activityList of activityLists | filter : searchText">
-                                    <span class="activity-date">
-                                        <span>{{activityList.date | date:'h:mm a'}}</span>
-                                    <span>{{activityList.date | date:'MM/dd/yy '}}</span>
-                                    </span>
-                                    <span class="activity-text" [innerHtml]="activityList.message">
-                                        <a *ngIf="activityList.attach == 'file'" href="javascript:void(0);"><img src="images/home/attach-file.png" /></a>
-                                        <a *ngIf="activityList.attach == 'image'" href="javascript:void(0);"><img src="images/home/attach-image.png" /></a>
-                                    </span>
-                                </div>
-                            </perfect-scrollbar>
-                      <!-- </perfect-scrollbar> -->
+                        <perfect-scrollbar class="activity-list" [config]="config">
+                            <div class="activity-item activity-type-{{activityList.type}}" *ngFor="let activityList of activityLists | filter : searchText">
+                                <span class="activity-date">
+                                    <span>{{activityList.date | date:'h:mm a'}}</span>
+                                <span>{{activityList.date | date:'MM/dd/yy '}}</span>
+                                </span>
+                                <span class="activity-text" [innerHtml]="activityList.message">
+                                    <a *ngIf="activityList.attach == 'file'" href="javascript:void(0);"><img src="images/home/attach-file.png" /></a>
+                                    <a *ngIf="activityList.attach == 'image'" href="javascript:void(0);"><img src="images/home/attach-image.png" /></a>
+                                </span>
+                            </div>
+                        </perfect-scrollbar>
                   </div>
                   <!-- Activity feed ends -->
 
               </div>
           </div>
           <!-- page content ends -->
-      <!-- </treasure-overlay-spinner> -->
   </section>
 
 </div>

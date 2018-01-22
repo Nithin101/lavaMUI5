@@ -21,9 +21,8 @@ export class HomeComponent implements OnInit {
   loadActivityFeeds = function () {
     this.loading = true;
     this.topRules = [];
+    this.activityLists = [];
     this._lavaService.getHomeData().then(data => {
-      console.log(data);
-
       this.momentstatus = data.rule_status;
       this.topRules = data.top_rules;
       this.emptyMoment = 4 - this.topRules.length;
@@ -38,10 +37,8 @@ export class HomeComponent implements OnInit {
 
       });
     this._lavaService.getActivityFeed().then(data => {
-
       this.activityLists = data;
       this.loading = false;
-
     },
       error => {
         console.log(error);
@@ -60,4 +57,35 @@ export class HomeComponent implements OnInit {
     }
   }
 
-}
+
+
+  // View moment functions
+  // $scope.editMoment = function (id) {
+  //   if (!angular.isDefined(id)) {
+  //     toastr.warning('Please select moment!', 'Warning');
+  //     return;
+  //   }
+  //   window.location = "#/editmoment/" + id;
+  // }
+
+  // // Suspend functions
+  // $scope.statusSuspend = function (id) {
+  //   var d = new Date();
+  //   var date = d.toISOString();
+  //   var editDateVal = $filter('date')(date, "yyyy-MM-dd'T'HH:mm:ss"); //date;
+  //   lavaService.updateRuleStatus(id, 'suspend', editDateVal, 'Suspend', $rootScope.globals.currentUser.ownername).then(function (data) {
+
+  //   });
+  // }
+
+  // // Re-activate functions
+  // $scope.statusReactivate = function (id) {
+  //   var d = new Date();
+  //   var date = d.toISOString();
+  //   var editDateVal = $filter('date')(date, "yyyy-MM-dd'T'HH:mm:ss"); //date;
+  //   lavaService.updateRuleStatus(id, 'approved', editDateVal, 'Re-activate', $rootScope.globals.currentUser.ownername).then(function (data) {
+
+  //   });
+
+
+  }

@@ -122,9 +122,7 @@ export class pieGraph {
 
     let pathBackground = svg.append('path')
       .attr("d", arc)
-      .style("fill", function (d) {
-        return "whitesmoke";
-      })
+      .style("fill", "#f5f5f5");
 
     let pathChart = svg.append('path')
       .datum({
@@ -152,7 +150,6 @@ export class pieGraph {
         .call(arcTween, ((2 * Math.PI)) * ratio);
     };
     setTimeout(animate, 0);
-
 
   }
 

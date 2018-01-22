@@ -10121,7 +10121,7 @@
   }
   /* ngx-loading section start*/
   .overly-spinner .spinner-circle{
-    font-size: 2px !important;
+    font-size: 3px !important;
     border-top: 5px solid rgba(0, 0, 0, 0.25) !important;
     border-right: 5px solid rgba(0, 0, 0, .75) !important;
     border-bottom: 5px solid rgba(0, 0, 0, .75) !important;
