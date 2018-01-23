@@ -26,7 +26,7 @@ export class LavaService {
         return options;
     }
     setHeadersWithToken(){
-        let token = this._mySharedService.getData();
+        let token = this._mySharedService.getTokens();
 		let headers = new Headers({ 
 			'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
@@ -55,7 +55,7 @@ export class LavaService {
     }
 
     getUserRole = function () {
-        let token = this._mySharedService.getData();
+        let token = this._mySharedService.getTokens();
         console.log(token);
         return this.http.get(this.baseURL + 'user/' + token.internalID, this.setHeadersWithToken()) 
         .toPromise()
@@ -63,6 +63,12 @@ export class LavaService {
         .catch(this.handleError);
     }
 
+    postUserRole = function (params) {
+        return this.http.post(this.baseURL + 'user/', params, this.setHeadersWithToken()) 
+        .toPromise()
+        .then(this.extractData)
+        .catch(this.handleError);
+    };
 
     private extractData(res: Response) {
         let body = res.json();

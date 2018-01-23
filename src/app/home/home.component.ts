@@ -9,9 +9,10 @@ import { RouterModule, Routes, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+
   constructor(
     private _lavaService: LavaService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {

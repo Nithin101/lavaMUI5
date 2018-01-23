@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
                         loginToken : data.token,
                         internalID : data.user.internalId
                         }
-                        this._mySharedService.setData(loginId);
+                        this._mySharedService.setTokens(loginId);
                         // this.router.navigate(['home']);
                     },
                     error => {
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
                             loginToken : error.msg.token,
                             internalID : error.msg.user.internalId
                             }
-                            this._mySharedService.setData(loginId);
+                            this._mySharedService.setTokens(loginId);
 
                             this.continueLogin(error, this.loginData);
                         } else {
@@ -150,7 +150,7 @@ export class LoginComponent implements OnInit {
                     loginToken: data.token,
                     internalID: data.user.internalId
                 }
-                this._mySharedService.setData(loginId);
+                this._mySharedService.setTokens(loginId);
                 this.getUserData();
             },
                 error => {
@@ -202,7 +202,7 @@ export class LoginComponent implements OnInit {
                         // } else {
                             // window.location.href = baseUrl + "#/" + $scope.landingPage;
                         // }
-                        this.router.navigate(['home']);
+                        this.router.navigate(['lava/home']);
                     }
                 },
                 error=> {
@@ -227,8 +227,8 @@ export class LoginComponent implements OnInit {
                 }
             };
             this._mySharedService.setLoginCredentials(globals);
-            this.cookieService.set( 'globals',globals );
-            this.cookieService.set('user', globals.currentUser.username);
+            // this.cookieService.set( 'globals',globals );
+            // this.cookieService.set('user', globals.currentUser.username);
         };
 
 }
