@@ -1,0 +1,69 @@
+<div id="page" class="page dashboard edit-stores-page">
+    <!-- page begins -->
+
+    <section id="content-section" class="content content-home">
+        <!-- <treasure-overlay-spinner active='spinner.active'> -->
+        <!-- page content begins -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-box">
+                <div class="float">
+                    <div class="page-title">
+                        <h2 class="user-title">User Settings</h2>
+                    </div>
+                    <div class="page-buttons">
+                        <!-- <a href="javascript:void(0);" class="button create-button sync-gimbal-btn" ng-click="">Change Password</a> -->
+                    </div>
+                </div>
+                <div class="float user-settings-detail">
+                    <!-- <form novalidate> -->
+                    <div class="field-row">
+                        <div class="field-col field-span" style="width: 30%;">
+                            <span>User Name</span>
+                        </div>
+                        <div class="field-col field-textBox" style="width: 35%;">
+                            <input type="text" class="input-textbox curve" [(ngModel)]="form.lava.first_name" />
+                            <i class="field-error-icon" *ngIf="first_name_errorMessage.length > 0"></i>
+                            <span class="field-error-message" *ngIf="first_name_errorMessage.length > 0">{{first_name_errorMessage}}</span>
+                        </div>
+                        <div class="field-col field-textBox" style="width: 35%;">
+                            <input type="text" class="input-textbox curve" [(ngModel)]="form.lava.last_name" />
+                            <i class="field-error-icon" *ngIf="last_name_errorMessage.length > 0"></i>
+                            <span class="field-error-message" *ngIf="last_name_errorMessage.length > 0">{{last_name_errorMessage}}</span>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field-col field-span" style="width: 30%;">
+                            <span>User Email</span>
+                        </div>
+                        <div class="field-col field-textBox" style="width: 70%;">
+                            <input type="text" class="input-textbox curve" [(ngModel)]="form.lava.email" />
+                            <i class="field-error-icon" *ngIf="email_errorMessage.length > 0"></i>
+                            <span class="field-error-message" *ngIf="email_errorMessage.length > 0">{{email_errorMessage}}</span>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field-col field-span" style="width: 30%;">
+                            <span>User Roles</span>
+                        </div>
+                        <div class="field-col field-textBox" style="width: 70%;">
+                            <input type="text" class="input-textbox curve" [(ngModel)]="user_role" disabled />
+                            <i class="field-error-icon" *ngIf="user_role_errorMessage.length > 0"></i>
+                            <span class="field-error-message" *ngIf="user_role_errorMessage.length > 0">{{user_role_errorMessage}}</span>
+                        </div>
+                    </div>
+
+                    <div class="field-row text-right">
+                        <!-- <button id="btn_cancel" type="button" class="cancel-set-button" data-dismiss="modal" ng-click="cancel()">Cancel</button> -->
+                        <button id="btn_Offers" type="submit" class="set-button" (click)="updateProfile()">Update</button>
+                    </div>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+        <!-- page content ends -->
+        <!-- </treasure-overlay-spinner> -->
+    </section>
+
+</div>

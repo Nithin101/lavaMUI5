@@ -36,11 +36,10 @@ export class isActiveNav {
       var cp6 = this.router.url.includes("/broadcast");
       console.log('native element',this.el.nativeElement);
       if (this.router.url === this.el.nativeElement.attributes['href'].value) {
-        console.log(this.el.nativeElement.parentNode);
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true);
         renderer2.addClass(this.el.nativeElement.parentNode, 'active');
         // renderer2.addClass(this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'), 'active');
-        // console.log(this.el.nativeElement.querySelectorAll('.has-submenu'));
+        console.log('submenus',this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'));
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', this.el.nativeElement.parentNode.classList.contains('.has-submenu'))
     } 
     else if (cp1 || cp2 ) {

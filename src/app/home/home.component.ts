@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   public loading = false;
   constructor(
     private _lavaService: LavaService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {

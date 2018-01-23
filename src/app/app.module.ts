@@ -21,11 +21,18 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { isActiveNav,pieGraph } from './Directives/general.directive';
 import { MySharedService } from './Service/MySharedService';
+import { GlobalComponent } from './global/global.component';
+import { UsersettingComponent } from './usersetting/usersetting.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent, data: { title: 'Login' } },
-  { path: 'home', component: HomeComponent, data: { title: 'Home' } },
-  { path: '#/home', component: HomeComponent, data: { title: 'Home' } },
+  {path: 'lava', component: HeaderComponent, data: { title: 'lava' },
+  children : [
+          { path: 'home', component: HomeComponent },
+          {path: 'global', component: GlobalComponent},
+          {path: 'usersettings', component: UsersettingComponent}
+  ]},
+  // { path: '**', redirectTo: '/login' }
 ]
 
 
@@ -38,6 +45,8 @@ const appRoutes: Routes = [
     SidebarComponent,
     isActiveNav,
     pieGraph
+    GlobalComponent,
+    UsersettingComponent,
   ],
   imports: [
     BrowserModule,

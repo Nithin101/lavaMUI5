@@ -3,7 +3,7 @@
 <ul class="nav-menu">
   
       <li class="home">
-          <a tabindex="0" is-active-nav href="/home">Home</a>
+          <a tabindex="0" is-active-nav href="/lava/home">Home</a>
       </li>
       <!-- Menu Home -->
       <li class="analyze has-submenu" (click)="menuclick($event,'analyze')">
@@ -11,16 +11,16 @@
           <img src="../../assets/images/sidebar/submenu-arrow.png" />
           <ul class="submenu" *ngIf="analyzeMenu" >
               <li class="cep" >
-                  <a tabindex="0" is-active-nav  href="/cep">Customer engagement profile</a>
+                  <a tabindex="0" is-active-nav  href="/lava/cep">Customer engagement profile</a>
               </li>
               <li class="fan360">
-                  <a tabindex="0" is-active-nav href="/fan360">Fast360 fan dashboard</a>
+                  <a tabindex="0" is-active-nav href="/lava/fan360">Fast360 fan dashboard</a>
               </li>
               <li class="gameday">
-                  <a tabindex="0" is-active-nav href="/gameday">Game day dashboard</a>
+                  <a tabindex="0" is-active-nav href="/lava/gameday">Game day dashboard</a>
               </li>
               <li class="global">
-                  <a tabindex="0" is-active-nav href="/global">Global platform dashboard</a>
+                  <a tabindex="0" is-active-nav href="/lava/global">Global platform dashboard</a>
               </li>
               <li class="falcons" (click)='submenuClick($event)'>
                   <a tabindex="0" is-active-nav href="/falcons">Attendance dashboard</a>
