@@ -5,9 +5,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { Ng2FilterPipeModule  } from 'ng2-filter-pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 
 
@@ -17,7 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { LavaService } from './lava.service';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { isActiveNav } from './Directives/general.directive';
+import { isActiveNav,pieGraph } from './Directives/general.directive';
 import { MySharedService } from './Service/MySharedService';
 import { GlobalComponent } from './global/global.component';
 import { UsersettingComponent } from './usersetting/usersetting.component';
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     SidebarComponent,
     isActiveNav,
+    pieGraph
     GlobalComponent,
     UsersettingComponent,
   ],
@@ -50,16 +53,21 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpModule,
-    ConfirmationPopoverModule .forRoot({
+    ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger'
     }),
     Ng2SearchPipeModule,
     Ng2FilterPipeModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    LoadingModule.forRoot({
+      animationType: ANIMATION_TYPES.circle,
+      backdropBackgroundColour: 'rgba(255, 255, 255, .55)',
+    }),
+    PerfectScrollbarModule
   ],
-  providers: [CookieService, 
-             LavaService,
-             MySharedService,
+  providers: [CookieService,
+    LavaService,
+    MySharedService,
   ],
   bootstrap: [AppComponent]
 })

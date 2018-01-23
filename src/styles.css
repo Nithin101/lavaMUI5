@@ -10079,50 +10079,55 @@
  
  /* Scroll Bar */
  
- .ps .ps__scrollbar-y-rail {
-     background: #f2f2f2 !important;
-     opacity: 1 !important;
-     transition: none;
-     width: 4px;
-     right: 3px;
- }
- 
- .ps .ps__scrollbar-x-rail {
-     background: #f2f2f2 !important;
-     opacity: 1 !important;
-     transition: none;
-     height: 4px;
- }
- 
- .ps .ps__scrollbar-y {
-     width: 4px !important;
-     right: 0px !important;
- }
- 
- .ps .ps__scrollbar-x {
-     height: 4px !important;
- }
- 
- .ps .ps__scrollbar-y-rail:hover,
- .ps .ps__scrollbar-y-rail.hover {
-     background-color: #f2f2f2 !important;
- }
- 
- .ps .ps__scrollbar-x-rail:hover,
- .ps .ps__scrollbar-x-rail.hover {
-     background-color: #f2f2f2 !important;
- }
- 
- .ps .ps__scrollbar-y-rail:hover .ps__scrollbar-y,
- .ps .ps__scrollbar-y-rail.hover .ps__scrollbar-y {
-     background-color: #cccccc !important;
- }
- 
- .ps .ps__scrollbar-x-rail:hover .ps__scrollbar-x,
- .ps .ps__scrollbar-x-rail.hover .ps__scrollbar-x {
-     background-color: #cccccc !important;
- }
- 
+/* ngx-perfect-scrollbar Scroll Bar */
+
+.ps .ps__rail-y {
+    background: #f2f2f2 !important;
+    opacity: 1 !important;
+    transition: none;
+    width: 4px !important;
+    right: 3px;
+  }
+  
+  .ps .ps__rail-x {
+    background: #f2f2f2 !important;
+    opacity: 1 !important;
+    transition: none;
+    height: 4px;
+  }
+  
+  .ps .ps__thumb-y {
+    width: 4px !important;
+    right: 0px !important;
+  }
+  
+  .ps .ps__thumb-x {
+    height: 4px !important;
+  }
+  
+  .ps .ps__rail-y:hover,
+  .ps .ps__rail-y.hover {
+    background-color: #f2f2f2 !important;
+  }
+  
+  .ps .ps__rail-x:hover,
+  .ps .ps__rail-x.hover {
+    background-color: #f2f2f2 !important;
+  }
+  
+  .ps .ps__rail-x:hover .ps__thumb-x,
+  .ps .ps__rail-y.hover .ps__thumb-y {
+    background-color: #cccccc !important;
+  }
+  /* ngx-loading section start*/
+  .overly-spinner .spinner-circle{
+    font-size: 3px !important;
+    border-top: 5px solid rgba(0, 0, 0, 0.25) !important;
+    border-right: 5px solid rgba(0, 0, 0, .75) !important;
+    border-bottom: 5px solid rgba(0, 0, 0, .75) !important;
+    border-left: 5px solid rgba(0, 0, 0, .75) !important;
+  }
+  /*ngx-loading end*/
  
  /* Sweepstakes */
  

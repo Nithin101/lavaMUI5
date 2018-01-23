@@ -1,5 +1,7 @@
-import { Directive, ElementRef, Renderer,Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Renderer,Renderer2 ,Input} from '@angular/core';
 import { RouterModule, Routes, Router, NavigationStart } from '@angular/router';
+import * as d3 from "d3";
+
 
 @Directive({
   selector: '[appGeneral]'
@@ -77,9 +79,77 @@ export class editSrc {
   selector: '[pie-graph]'
 })
 export class pieGraph {
-  constructor(
-    private el: ElementRef) {
-      console.log(el);
+  @Input() percent: number;
+  constructor(private el: ElementRef) {}
+  ngOnInit() {
+   
+    let mySvg = d3.select(this.el.nativeElement)
+      .append("svg")
+      .attr("width", 263)
+      .attr("height", 117);
+
+    let percent = this.percent;
+
+    let ratio = percent / 100;
+
+    // Constructs a  pie function 	
+    let pie = d3.pie()
+      .sort(null);
+
+    let width_topmoments = 263,
+      height_topmoments = 117;
+
+    let radius = 58.5;
+
+    let svg = mySvg.append('g')
+      .attr("class", "group-pie")
+      .attr("transform", "translate(" + width_topmoments / 2 + "," + height_topmoments / 2 + ")"); //75
+
+    // Background pie chart
+    let arc = d3.arc()
+      .innerRadius(radius)
+      .outerRadius(radius - 7)
+      .startAngle(0)
+      .endAngle(2 * Math.PI);
+
+    // Progress pie chart
+    let arcLine = d3.arc()
+      .innerRadius(radius)
+      .outerRadius(radius - 7)
+      .startAngle(0)
+      .cornerRadius(25);
+
+    let pathBackground = svg.append('path')
+      .attr("d", arc)
+      .style("fill", "#f5f5f5");
+
+    let pathChart = svg.append('path')
+      .datum({
+        endAngle: 0
+      })
+      .attr("d", arc)
+      .style("fill", "#03d2ff")
+      .attr("transform", "rotate(180)");
+
+    let arcTween = function (transition, newAngle) {
+      transition.attrTween("d", function (d) {
+        let interpolate = d3.interpolate(d.endAngle, newAngle);
+        let interpolateCount = d3.interpolate(0, percent);
+        return function (t) {
+          d.endAngle = interpolate(t);
+          return arcLine(d);
+        };
+      });
+    };
+
+    let animate = function () {
+      pathChart.transition()
+        .duration(750)
+        //.ease('cubic')
+        .call(arcTween, ((2 * Math.PI)) * ratio);
+    };
+    setTimeout(animate, 0);
 
   }
+
 }
