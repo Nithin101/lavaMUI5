@@ -120,6 +120,7 @@ export class UsersettingComponent implements OnInit {
         globals.currentUser.ownername = that.ownerName;
         that._mySharedService.setLoginCredentials(globals);
         // $rootScope.redirect = true;
+        that.router.navigate(['lava/home']);
       },
         error => {
           console.log(error);
