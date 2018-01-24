@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
     },
       error => {
         console.log(error);
-
       });
     this._lavaService.getActivityFeed().then(data => {
       this.activityLists = data;
@@ -42,7 +41,6 @@ export class HomeComponent implements OnInit {
     },
       error => {
         console.log(error);
-
       });
   }
   functionAlertMessage = function (text) {

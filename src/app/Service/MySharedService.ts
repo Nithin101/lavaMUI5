@@ -8,17 +8,18 @@ export class MySharedService {
     // dataChange: Observable<any>;
   
     constructor(private cookieService: CookieService) {
-    //   this.dataChange = new Observable((observer:Observer) {
-    //     this.dataChangeObserver = observer;
-    //   });
     }
   
     setTokens(data:any) {
       this.cookieService.set( 'loginTokens', JSON.stringify(data) );
-    //   this.dataChangeObserver.next(this.data);
     }
     getTokens(){
-        return JSON.parse(this.cookieService.get('loginTokens'));
+        if(this.cookieService.get('loginTokens') == '' || this.cookieService.get('loginTokens') == undefined){
+          return '';
+        }
+        else{
+          return JSON.parse(this.cookieService.get('loginTokens'));
+        }
     }
 
     setLoginCredentials(data:any){
@@ -27,6 +28,15 @@ export class MySharedService {
       this.cookieService.set('user', data.currentUser.username);
     }
     getLoginCredentials(){
-      return JSON.parse(this.cookieService.get('globals'));
+      if(this.cookieService.get('globals') == '' || this.cookieService.get('globals') == undefined){
+        return '';
+      }
+      else{
+        return JSON.parse(this.cookieService.get('globals'));
+      }
+    }
+
+    clearAllinfo(){
+      this.cookieService.deleteAll();
     }
   }
