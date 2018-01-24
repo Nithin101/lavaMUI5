@@ -16,7 +16,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { LavaService } from './lava.service';
+import { LavaService } from './Service/lava.service';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { isActiveNav,pieGraph } from './Directives/general.directive';

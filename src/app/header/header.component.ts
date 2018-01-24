@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MySharedService } from '../Service/MySharedService';
 import { RouterModule, Routes, Router } from '@angular/router';
-import { LavaService } from '../lava.service';
+import { LavaService } from '../Service/lava.service';
 
 @Component({
   selector: 'app-header',

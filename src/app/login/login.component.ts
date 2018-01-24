@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { LavaService } from '../lava.service';
+import { LavaService } from '../Service/lava.service';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { MySharedService } from '../Service/MySharedService';
 
