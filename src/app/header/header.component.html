@@ -23,10 +23,10 @@
   <nav ngbDropdownMenu aria-labelledby="dropdownBasic1" class="menu-dropdown" >
       <ul  >
           <!-- <li class="owner"><a href="javascript:void(0);">{{ownerName}}</a></li> -->
-          <li class="posts"><a href="#/home">Posts for me <span class="badge color-pink">3</span></a></li>
-          <li class="moments"><a href="#/moments">Moments</a></li>
-          <li class="settings"><a href="lava/usersettings">Settings</a></li>
-          <li class="logout"><a href="#/logout">Logout</a></li>
+          <li class="posts"><a href="lava/home">Posts for me <span class="badge color-pink">3</span></a></li>
+          <li class="moments"><a href="lava/moments">Moments</a></li>
+          <li class="settings"><a href="lava/usersettings" >Settings</a></li>
+          <li class="logout"><a (click) ='logout()'>Logout</a></li>
       </ul>
   </nav>
   </div>

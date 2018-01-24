@@ -25,7 +25,8 @@ import { GlobalComponent } from './global/global.component';
 import { UsersettingComponent } from './usersetting/usersetting.component';
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent, data: { title: 'Login' } },
+  { path: '', redirectTo: '/login', pathMatch : 'full'},
+  { path: 'login', component: LoginComponent, data: { title: 'Login'} },
   {path: 'lava', component: HeaderComponent, data: { title: 'lava' },
   children : [
           { path: 'home', component: HomeComponent },
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     SidebarComponent,
     isActiveNav,
-    pieGraph
+    pieGraph,
     GlobalComponent,
     UsersettingComponent,
   ],

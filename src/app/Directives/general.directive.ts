@@ -19,15 +19,10 @@ export class isActiveNav {
     private el: ElementRef,
     private renderer: Renderer,
     renderer2: Renderer2) {
-    let urlSet;
 
     renderer.setElementStyle(el.nativeElement, 'class', 'active');
     router.events.subscribe((val) => {
-      urlSet = this.router.url;
-      // console.log(urlSet) ;
-
       if (this.router.url) {
-        // console.log("app", this.el.nativeElement.attributes['href'].value) 
       var cp1 = this.router.url.includes("/moment/");
       var cp2 = this.router.url.includes("/view-moment/");
       var cp3 = this.router.url.includes("/moment-perfomance/");
@@ -39,7 +34,6 @@ export class isActiveNav {
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true);
         renderer2.addClass(this.el.nativeElement.parentNode, 'active');
         // renderer2.addClass(this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'), 'active');
-        console.log('submenus',this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'));
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', this.el.nativeElement.parentNode.classList.contains('.has-submenu'))
     } 
     else if (cp1 || cp2 ) {
@@ -60,7 +54,6 @@ export class isActiveNav {
       this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', false)
     }
     }
-      // console.log("val", val);
     });
   }
 
@@ -70,9 +63,7 @@ export class isActiveNav {
   selector: '[editSrc]'
 })
 export class editSrc {
-
   constructor() { }
-
 }
 
 @Directive({

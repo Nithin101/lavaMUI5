@@ -16,7 +16,6 @@ export class SidebarComponent implements OnInit {
   }
   menuclick = function ($event, menu) {
     $event.stopPropagation();
-    console.log("menuclick");
     if(menu == 'analyze'){
       this.analyzeMenu = true;
       this.resourcesMenu = false;
@@ -32,12 +31,6 @@ export class SidebarComponent implements OnInit {
       this.resourcesMenu = true;
       this.designMenu = false;
     }
-    console.log(menu);
-    // $event.stopPropagation();
-    // angular.element('.nav-menu li').removeClass('hovered');
-    // angular.element($event.currentTarget).addClass('hovered');
-    // angular.element('.submenu').removeClass('show');
-    // angular.element($event.currentTarget).children('ul').addClass('show');
 };
 
 submenuClick($event){
@@ -46,12 +39,10 @@ submenuClick($event){
   this.resourcesMenu = false;
   this.designMenu = false;
   this.zone.run(() => {});
-  console.log('submenu'); 
 }
 
 @HostListener('document:click')
 clickout() {
-    console.log('clicked out ')
     this.analyzeMenu = false;
     this.resourcesMenu = false;
     this.designMenu = false;

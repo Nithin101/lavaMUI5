@@ -14591,6 +14591,7 @@
     background-color: transparent;
     color: transparent;
     padding: 0;
+    cursor: pointer;
 }
 .header-container  .dropdown[_ngcontent-c2] {
     float: right;

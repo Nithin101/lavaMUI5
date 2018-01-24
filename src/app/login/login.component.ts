@@ -36,12 +36,7 @@ export class LoginComponent implements OnInit {
   isOpen = false;
 
   ngOnInit() {
-    this.popoverTitle = 'Warning';
-    this.popoverMessage = 'User account already logged in. Are you sure you want to continue?';
-    this.confirmText = 'Yes <i class="glyphicon glyphicon-ok"></i>';
-    this.cancelText = 'No <i class="glyphicon glyphicon-remove"></i>';
   }
-
   logIn = function () {
     
             if (!(this.username == '' || this.username == undefined ) && !(this.password == '' || this.username == this.password )) {
@@ -53,7 +48,6 @@ export class LoginComponent implements OnInit {
                 }
     
                 this._lavaService.doLogin(this.loginData).then(data => {
-                  console.log(data);
                         this.loginToken = data.token;
                         this.internalID = data.user.internalId;
                         this.getUserData();
@@ -62,7 +56,6 @@ export class LoginComponent implements OnInit {
                         internalID : data.user.internalId
                         }
                         this._mySharedService.setTokens(loginId);
-                        // this.router.navigate(['home']);
                     },
                     error => {
                         if (error.code === 606) {
@@ -92,58 +85,14 @@ export class LoginComponent implements OnInit {
         };
         continueLogin = function(error, loginData) {
             this.popoverTitle = 'Warning';
-            // this.popoverMessage = error.msg.messageBean.message;
             this.popoverMessage = 'User account already logged in. Are you sure you want to continue?';
             this.confirmText = 'Yes <i class="glyphicon glyphicon-ok"></i>';
             this.cancelText = 'No <i class="glyphicon glyphicon-remove"></i>';
             this.isOpen = true;
-            // console.log(this.cancelClicked);
-
-            // console.log(isOpen); 
-            
-  
-            // this.router.navigate(['home']);
-            // setTimeout(function() {
-            //     $('.modal').keypress(function (e) {
-            //         let key = e.which;
-            //          if(key == 13 && $('.modal').has('#confirm-button').length != 0)  // the enter key code
-            //           {
-            //             $('#confirm-button').click();
-            //           }
-            //     });
-            // }, 500);
-            // this._confirmation.create('Warning', 'User account already logged in. Are you sure you want to continue?', this.settings);
-            // $confirm({
-            //     text: 'User account already logged in. Are you sure you want to continue?',
-            //     title: 'Warning',
-            //     ok: 'Yes',
-            //     cancel: 'Cancel',
-            //     action: 'modal-warning'
-            // }).then(function () {
-    
-            //     this._lavaService.doLoginContinue(loginData).then(function (data) {
-            //             $rootScope.loginToken = data.token;
-            //             $rootScope.internalID = data.user.internalId;
-            //             $scope.getUserData();
-            //         },
-            //         function (error) {
-            //             //error
-            //             $scope.loginError = true;
-            //             $scope.loginMessage = error.msg.data;
-            //         });
-    
-            // }).catch(function () {
-            //     // console.log('error');
-            // }).finally(function () {
-            //     // console.log("finally");
-            // });
         }
         continueWithLogin() {
-            console.log('continue with login', this.loginData);
-            // this.router.navigate(['home']);
             this.isOpen = false;
             this._lavaService.doLoginContinue(this.loginData).then(data => {
-                console.log(data);
                 this.loginToken = data.token;
                 this.internalID = data.user.internalId; 
                 let loginId = {
@@ -154,8 +103,6 @@ export class LoginComponent implements OnInit {
                 this.getUserData();
             },
                 error => {
-                    console.log(error);
-                    //error
                     this.loginError = true;
                     this.loginMessage = error.msg.data;
                 });
@@ -166,15 +113,13 @@ export class LoginComponent implements OnInit {
         close() {
             this.loginError = false;
         };
-
         getUserData = function () {
             this._lavaService.getUserRole().then(prof=> {
-    
                     if (prof.lava == undefined) {
                         this.loginError = true;
                         this.loginMessage = "User profile doesn't exist";
-                    } else {
-    
+                    }
+                    else {
                         if (!(prof.lava.first_name == null || prof.lava.first_name == undefined)) {
                             this.ownerName = prof.lava.first_name;
                         } else {
@@ -184,9 +129,7 @@ export class LoginComponent implements OnInit {
                         if (!(prof.lava.last_name == null || prof.lava.last_name == undefined )) {
                             this.ownerName = this.ownerName + " " + prof.lava.last_name;
                         }
-    
                         this.SetCredentials(this.username, this.ownerName, prof.lava.user_roles, this.loginToken, this.internalID);
-    
                         // if (this.ownerName == null || this.ownerName == undefined) {
                         //     window.location.href = baseUrl + "#/user-settings?redirect";
                         // } else if ($rootScope.originalPaths.length > 0) {
@@ -206,8 +149,6 @@ export class LoginComponent implements OnInit {
                     }
                 },
                 error=> {
-                    console.log('error',error);
-                    //error
                     this.loginError = true;
                     this.loginMessage = error.msg.data;
                 });
@@ -216,7 +157,6 @@ export class LoginComponent implements OnInit {
             if (role.length == 0) {
                 role.push('marketer');
             }
-            console.log('set credentials');
             let globals = {
                 currentUser: {
                     username: username,
@@ -227,9 +167,6 @@ export class LoginComponent implements OnInit {
                 }
             };
             this._mySharedService.setLoginCredentials(globals);
-            // this.cookieService.set( 'globals',globals );
-            // this.cookieService.set('user', globals.currentUser.username);
         };
-
 }
 

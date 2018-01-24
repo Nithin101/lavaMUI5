@@ -64,11 +64,25 @@ export class LavaService {
     }
 
     postUserRole = function (params) {
-        return this.http.post(this.baseURL + 'user/', params, this.setHeadersWithToken()) 
+        return this.http.post(this.baseURL + 'user', params, this.setHeadersWithToken()) 
         .toPromise()
         .then(this.extractData)
         .catch(this.handleError);
     };
+
+    doLogout = function () {
+        let token = this._mySharedService.getTokens();
+        var logoutData = {
+            "internalId": token.internalID,
+            "domain": "web"
+        };
+
+        return this.http.post(this.baseURL + 'logout', logoutData, this.setHeadersWithToken()) 
+        .toPromise()
+        .then(this.extractData)
+        .catch(this.handleError);
+    };
+
 
     private extractData(res: Response) {
         let body = res.json();
