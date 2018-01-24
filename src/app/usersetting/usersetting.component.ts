@@ -1,7 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { MySharedService } from '../Service/MySharedService';
-import { LavaService } from '../lava.service'
+import { LavaService } from '../Service/lava.service'
 
 @Component({
   selector: 'app-usersetting',

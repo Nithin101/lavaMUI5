@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LavaService } from '../lava.service';
+import { LavaService } from '../Service/lava.service';
 import { RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
