@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { MySharedService } from './Service/MySharedService';
+import { MySharedService } from './MySharedService';
 
 
 @Injectable()
