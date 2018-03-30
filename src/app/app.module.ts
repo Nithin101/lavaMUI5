@@ -23,14 +23,16 @@ import { isActiveNav,pieGraph } from './Directives/general.directive';
 import { MySharedService } from './Service/MySharedService';
 import { GlobalComponent } from './global/global.component';
 import { UsersettingComponent } from './usersetting/usersetting.component';
+import { BroadcastComponent } from './broadcast/broadcast.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch : 'full'},
   { path: 'login', component: LoginComponent, data: { title: 'Login'} },
   {path: 'lava', component: HeaderComponent, data: { title: 'lava' },
   children : [
-          { path: 'home', component: HomeComponent },
+          {path: 'home', component: HomeComponent},
           {path: 'global', component: GlobalComponent},
+          {path: 'broadcast', component: BroadcastComponent},
           {path: 'usersettings', component: UsersettingComponent}
   ]},
   // { path: '**', redirectTo: '/login' }
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     pieGraph,
     GlobalComponent,
     UsersettingComponent,
+    BroadcastComponent
   ],
   imports: [
     BrowserModule,

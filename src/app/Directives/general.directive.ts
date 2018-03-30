@@ -49,7 +49,7 @@ export class isActiveNav {
         $('.analyze > ul.submenu > li.abtest').addClass('active');
         $('.analyze > ul.submenu > li.abtest').parents('.has-submenu').addClass('active');
     } else if (cp6) {
-        $('. ').addClass('active');
+        $('.home').addClass('active');
     } else {
       this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', false)
     }
