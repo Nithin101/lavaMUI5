@@ -6,8 +6,43 @@
           <!-- page content begins -->
           <div class="dashboard-wrapper">
               <div class="dashboard-box">
-               
-
+                <div class="float broadcast-title-sec">
+                  <div class="page-title">
+                    <h2 class="broadcast-title">Manual  broadcast</h2>
+                    <p class="broadcast-sub-title">Create and manually send instant notifications in three easy steps.</p>
+                  </div>
+                  <div class="edit-moment">
+                    <button class="back-moment-btn" type="reset">Back</button>
+                  </div>
+                </div>
+                <div class="float broadcast-content-sec">
+                  <div class="broadcast-column broadcast-segment">
+                      <div class="float brd-column-title">
+                          <span class="broadcast-steps">1</span>
+                          <h2>Select target audience </h2>
+                      </div>
+                      <div class="float broadcast-sub-content">
+                          <div class="estimated-audience">{{estimatedAudience}}</div>
+                          <h2>Filter by subscriptions</h2>
+                           <div class="float input-checkbox everyone-checkbox">
+                              <input  class="normal" id="everyone" type="checkbox" [(ngModel)]="checkEveryOne"/>
+                              <label class="checkbox" for="everyone">Everyone</label>
+                          </div>
+                         <!-- <i class="field-error-icon" *ngIf="tagError.length > 0"></i>
+                          <span class="field-error-message" *ngIf="tagError.length > 0">{{tagError}}</span>
+                          <div class="float input-checkbox" *ngFor="category in segmentDesign[2][0].arg_valid_types track by $index">
+                              <input ng-disabled="segmentDesign[2][0].arg_disabled" class="{{segmentDesign[2][0].arg_style}} audiance-checkbox" id="{{segmentDesign[2][0].arg_name}}-{{$parent.$parent.$index}}{{$index}}"
+                                  type="checkbox" value="{{category[segmentDesign[2][0].arg_valid_type_value]}}" [checked]="checkboxBoolean(segmentDesign[2][0].arg_selected_value, category[segmentDesign[2][0].arg_valid_type_required[0]])"
+                                  (click)="toggleSelection(segmentDesign[2][0], segmentDesign[2][0].arg_selected_value, category[segmentDesign[2][0].arg_valid_type_value], category[segmentDesign[2][0].arg_valid_type_required[0]]);estimateAudience();"
+                              />
+                              <label class="checkbox" for="{{segmentDesign[2][0].arg_name}}-{{$parent.$parent.$index}}{{$index}}">
+                                  {{category[segmentDesign[2][0].arg_valid_type_value]}}
+                              </label>
+                          </div> -->
+                      </div>
+                  </div>
+                 
+              </div>
                 
 
               
