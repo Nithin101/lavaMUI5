@@ -1,6 +1,7 @@
-import { Directive, ElementRef, Renderer,Renderer2 ,Input} from '@angular/core';
+import { Directive, ElementRef, Renderer, Renderer2, Input } from '@angular/core';
 import { RouterModule, Routes, Router, NavigationStart } from '@angular/router';
 import * as d3 from "d3";
+declare var $ :any;
 
 
 @Directive({
@@ -9,7 +10,6 @@ import * as d3 from "d3";
 export class GeneralDirective {
 
 }
-var $: any;
 
 @Directive({
   selector: '[is-active-nav]'
@@ -70,9 +70,9 @@ export class editSrc {
 })
 export class pieGraph {
   @Input() percent: number;
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
   ngOnInit() {
-   
+
     let mySvg = d3.select(this.el.nativeElement)
       .append("svg")
       .attr("width", 263)

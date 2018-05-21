@@ -19,11 +19,7 @@ export class LoginComponent implements OnInit {
                private _mySharedService : MySharedService
              ) { }
 
-  username = '';
-  password = '';
-  loginError: boolean = false;
-  loginMessage = '';
-  loginToken = '';
+  username = ''; password = '';loginError: boolean = false;loginMessage = ''; loginToken = '';
   internalID = '' ;
   loginData = {};
   ownerName = '';

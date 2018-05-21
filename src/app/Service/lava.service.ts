@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { MySharedService } from './MySharedService';
+import { ConfigService } from '../config/config.service';
 
 
 @Injectable()
 export class LavaService {
 
-  constructor(private http: Http,
-              private _mySharedService : MySharedService ) {  }
+    constructor(private http: Http,
+        private _mySharedService: MySharedService,
+        private _global: ConfigService) { }
+    //baseURL = this._global.GENERAL_CONFIG.SERVICE_URL; 
+    baseURL = this._global.config_data.GENERAL_CONFIG.SERVICE_URL; // service url  
 
-    baseURL = 'https://devcc.lava.ai/LavaMarketer/api/v1/'; // service url  
 
     analyticID = 1;
 
@@ -25,19 +28,19 @@ export class LavaService {
         let options = new RequestOptions({ headers: headers });
         return options;
     }
-    setHeadersWithToken(){
+    setHeadersWithToken() {
         let token = this._mySharedService.getTokens();
-		let headers = new Headers({ 
-			'Access-Control-Allow-Origin': '*',
+        let headers = new Headers({
+            'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
             'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
             'Content-Type': 'application/json',
-            'Lava-Authorization':'Bearer ee6308b0-1ed7-454d-9662-954ca175a4c4',
+            'Lava-Authorization': 'Bearer ee6308b0-1ed7-454d-9662-954ca175a4c4',
             'App-Id': 26,
             'Lava-User-Token': token.loginToken
         });
         let options = new RequestOptions({ headers: headers });
-                return options;
+        return options;
     }
 
     doLogin(params) {
@@ -48,26 +51,26 @@ export class LavaService {
     }
 
     doLoginContinue(params) {
-        return this.http.post(this.baseURL + 'login/continue', params, this.setHeadersWithToken()) 
-        .toPromise()
-        .then(this.extractData)
-        .catch(this.handleError);
+        return this.http.post(this.baseURL + 'login/continue', params, this.setHeadersWithToken())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
     }
 
     getUserRole = function () {
         let token = this._mySharedService.getTokens();
         console.log(token);
-        return this.http.get(this.baseURL + 'user/' + token.internalID, this.setHeadersWithToken()) 
-        .toPromise()
-        .then(this.extractData)
-        .catch(this.handleError);
+        return this.http.get(this.baseURL + 'user/' + token.internalID, this.setHeadersWithToken())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
     }
 
     postUserRole = function (params) {
-        return this.http.post(this.baseURL + 'user', params, this.setHeadersWithToken()) 
-        .toPromise()
-        .then(this.extractData)
-        .catch(this.handleError);
+        return this.http.post(this.baseURL + 'user', params, this.setHeadersWithToken())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
     };
 
     doLogout = function () {
@@ -77,10 +80,10 @@ export class LavaService {
             "domain": "web"
         };
 
-        return this.http.post(this.baseURL + 'logout', logoutData, this.setHeadersWithToken()) 
-        .toPromise()
-        .then(this.extractData)
-        .catch(this.handleError);
+        return this.http.post(this.baseURL + 'logout', logoutData, this.setHeadersWithToken())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
     };
 
 
@@ -121,6 +124,14 @@ export class LavaService {
     }
     getActivityFeed() {
         return this.http.get(this.baseURL + 'rules/activityFeed/', this.setHeaders())
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    // Broadcast dashboard
+    getInstantBroadcast(appId) {
+        return this.http.get(this.baseURL + 'instantbroadcast/' + appId, this.setHeaders())
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
