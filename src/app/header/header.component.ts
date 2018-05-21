@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     let loginTokens = this._mySharedService.getTokens();
     let loginCredentials = this._mySharedService.getLoginCredentials();
+    console.log(loginTokens, loginCredentials)
     if((loginTokens == undefined || loginTokens == '') || (loginCredentials == undefined || loginCredentials == ''))
     {
       this._mySharedService.clearAllinfo();
