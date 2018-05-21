@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { MySharedService } from './MySharedService';
+import { ConfigService } from '../config/config.service';
 
 
 @Injectable()
 export class LavaService {
 
     constructor(private http: Http,
-        private _mySharedService: MySharedService) { }
+        private _mySharedService: MySharedService,
+        private _global: ConfigService) { }
+    //baseURL = this._global.GENERAL_CONFIG.SERVICE_URL; 
+    baseURL = this._global.config_data.GENERAL_CONFIG.SERVICE_URL; // service url  
 
-    baseURL = 'https://devcc.lava.ai/LavaMarketer/api/v1/'; // service url  
 
     analyticID = 1;
 
