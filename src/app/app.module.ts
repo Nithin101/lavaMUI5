@@ -36,11 +36,12 @@ const appRoutes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'global', component: GlobalComponent },
       { path: 'broadcast', component: BroadcastComponent },
-      { path: 'usersettings', component: UsersettingComponent }
+      { path: 'usersettings', component: UsersettingComponent },
+      {path: 'moment', component: MomentComponent}
     ]
   },
   // { path: '**', redirectTo: '/login' }
-          {path: 'moment', component: MomentComponent}
+         
 ]
 
 
@@ -57,7 +58,6 @@ const appRoutes: Routes = [
     GlobalComponent,
     UsersettingComponent,
     BroadcastComponent
-    MomentComponent,
   ],
   imports: [
     BrowserModule,
