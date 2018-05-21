@@ -23,6 +23,7 @@ import { isActiveNav,pieGraph } from './Directives/general.directive';
 import { MySharedService } from './Service/MySharedService';
 import { GlobalComponent } from './global/global.component';
 import { UsersettingComponent } from './usersetting/usersetting.component';
+import { MomentComponent } from './moment/moment.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch : 'full'},
@@ -31,9 +32,9 @@ const appRoutes: Routes = [
   children : [
           { path: 'home', component: HomeComponent },
           {path: 'global', component: GlobalComponent},
-          {path: 'usersettings', component: UsersettingComponent}
-  ]},
-  // { path: '**', redirectTo: '/login' }
+          {path: 'usersettings', component: UsersettingComponent},
+          {path: 'moment', component: MomentComponent}
+  ]}
 ]
 
 
@@ -44,10 +45,12 @@ const appRoutes: Routes = [
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
+    MomentComponent,
     isActiveNav,
     pieGraph,
     GlobalComponent,
     UsersettingComponent,
+    MomentComponent,
   ],
   imports: [
     BrowserModule,

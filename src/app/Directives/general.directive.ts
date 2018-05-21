@@ -29,7 +29,6 @@ export class isActiveNav {
       var cp4 = this.router.url.includes("/engagement-perfomance/");
       var cp5 = this.router.url.includes("/abtest-perfomance/");
       var cp6 = this.router.url.includes("/broadcast");
-      console.log('native element',this.el.nativeElement);
       if (this.router.url === this.el.nativeElement.attributes['href'].value) {
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true);
         renderer2.addClass(this.el.nativeElement.parentNode, 'active');
@@ -51,7 +50,7 @@ export class isActiveNav {
     } else if (cp6) {
         $('. ').addClass('active');
     } else {
-      this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', false)
+     this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', false)
     }
     }
     });

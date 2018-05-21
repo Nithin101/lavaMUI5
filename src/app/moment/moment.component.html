@@ -1,0 +1,126 @@
+<div id="page" class="page dashboard gaming-page moment-dashboard">
+  <!-- page begins -->
+  <section id="content-section" class="content content-home">
+      <!-- <treasure-overlay-spinner active='spinner.active'> -->
+          <!-- page content begins -->
+          <div class="dashboard-wrapper">
+              <div class="dashboard-box">
+
+                  <div class="float">
+                      <div class="page-title">
+                          <h2 class="home-title">Moment Performance Overview</h2>
+                      </div>
+                      <div class="page-buttons">
+                          <div class="float">
+                              <div class="search-dropdown moment-dashboard-search">
+                                  <form>
+                                      <input type="text" class="search-field" />
+                                      <!-- <input ng-show="sel2" type="text" class="search-field" ng-model="$parent.$parent.searchby" ng-click="$parent.$parent.openMoment = false; $parent.$parent.statusOption = true" placeholder="Filter by {{searchDrop}}" readonly/>
+                                      <input ng-show="sel3" type="text" class="search-field" ng-model="$parent.$parent.searchby" ng-click="$parent.$parent.openMoment = false" placeholder="Filter by {{searchDrop}}" />
+                                      <input ng-show="sel4" type="text" class="search-field" ng-model="$parent.$parent.searchby" ng-click="$parent.$parent.openMoment = false" placeholder="Filter by {{searchDrop}}" date-picker/>
+                                      <a href="javascript:void(0);" ng-init="$parent.$parent.open = false" ng-click="$parent.$parent.open = !$parent.$parent.open; $parent.$parent.openMoment = $parent.$parent.statusOption = false;" ng-class="{'open': open, 'closed': !open}" draggable="false">&nbsp;</a> -->
+                                      <ul class="options-list" >
+                                          <li>Moment name</li>
+                                          <li >Status</li>
+                                          <li >Owner</li>
+                                          <li >Date created</li>
+                                      </ul>
+                                      <ul class="options-list">
+                                          <li >Draft</li>
+                                          <li>Submitted</li>
+                                          <li >Approved</li>
+                                          <li>Suspended</li>
+                                          <li>Live</li>
+                                          <li>Finished</li>
+                                      </ul>
+                                  </form>
+                              </div>
+                              <div class="search-dropdown show-moment-dashboard sort-icon">
+                                  <form>
+                                      <input type="text" class="search-field"  placeholder="" readonly/>
+                                      <a href="javascript:void(0);" draggable="false">&nbsp;</a>
+                                      <ul class="options-list" >
+                                          <li >Moment name</li>
+                                          <li >Status</li>
+                                          <li >Owner</li>
+                                          <li >Completion</li>
+                                          <li >Trigger name</li>
+                                          <li >Triggered</li>
+                                          <li >Eligible</li>
+                                          <li >Engaged</li>
+                                          <li >Completion</li>
+                                          <li >Total Value</li>
+                                          <li >Last Modified</li>
+                                      </ul>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="float">
+                      <div class="status-legends">
+                          <span class="status-live">A/B TEST</span>
+                      </div>
+                  </div>
+                  <div class="float gaming-cards-section">
+                      <perfect-scrollbar class="gaming-cards-container" wheel-propagation="true" wheel-speed="1" min-scrollbar-length="20" suppress-scroll-x="true">
+                          <div class="float" >
+                              <div class="single-gaming-cards" >
+                                  <div class="gaming-box-header">
+                                      <h3></h3>
+                                      <span>Created by </span>
+                                      <span>Trigger :</span>
+                                  </div>
+                                  <div class="gaming-box-content">
+                                      <div class="gaming-graph">
+                                          <svg width="274" height="162">
+                                          <g>
+                                          <text class="gaming-bar-text gaming-text-start" x="12" y="30">TRIGGERED</text>
+                                          <text class="gaming-bar-text gaming-text-start" x="12" y="60">ELIGIBLE</text>
+                                          <text class="gaming-bar-text gaming-text-start" x="12" y="90">ENGAGED</text>
+                                          <text class="gaming-bar-text gaming-text-start" x="12" y="120">TOTAL VALUE</text>
+                                          <!--gaming bar value -->
+                                          <text class="gaming-bar-value gaming-text-end" x="260" y="30">{{item.triggered}}</text>
+                                          <text class="gaming-bar-value gaming-text-end" x="260" y="60">{{item.targeted}}</text>
+                                          <text class="gaming-bar-value gaming-text-end" x="260" y="90">{{item.engaged}}</text>
+                                          <text class="gaming-bar-value gaming-text-end" x="260" y="120">{{item.action_value}}</text>
+                                          </g>
+                                          <g>
+                                          <!--gamimng completion text -->
+                                          <text class="gaming-bar-completion-text gaming-text-start" x="12" y="148">COMPLETION</text>
+                                          <!--gamimng completion value -->
+                                          <text class="gaming-bar-completion-value gaming-text-end" x="260" y="145">{{item.percentage_completion}}%</text>
+                                          <!--gamimng completion bar -->
+                                          <rect class="gaming-bar-gray" x="0" y="152" width="274" height="5" />
+                                          <rect class="gaming-completion-bar" x="0" y="152" height="5" />
+                                          </g>
+                                          </svg>
+                                      </div>
+                                  </div>
+                                  <div class="gaming-box-footer">
+                                      <span class="icon-start">{{ item.start_date | date : 'MMMM dd,yyyy'}}</span>
+                                      <span class="icon-stop">{{ item.end_date | date : 'MMMM dd,yyyy'}}</span>
+                                  </div>
+                                  <div class="gaming-box-overlay">
+                                      <div class="gaming-box-buttons">
+                                          <a href="javascript:void(0);" class="view-gaming-box-button" >
+                                              <img src="images/moment-dashboard/view-performance.png" />
+                                              <span>VIEW PERFORMANCE</span>
+                                          </a>
+                                      </div>
+                                  </div>
+
+                              </div>
+
+
+                          </div>
+                      </perfect-scrollbar>
+                  </div>
+
+              </div>
+          </div>
+          <!-- page content ends -->
+      <!-- </treasure-overlay-spinner> -->
+  </section>
+
+</div>

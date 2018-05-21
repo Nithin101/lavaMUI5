@@ -37,6 +37,8 @@ export class MySharedService {
     }
 
     clearAllinfo(){
+      this.cookieService.delete('globals');
+      this.cookieService.delete('loginTokens');
       this.cookieService.deleteAll();
     }
   }
