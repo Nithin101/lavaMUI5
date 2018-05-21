@@ -5,7 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
-import { BootstrapModalModule  } from 'ng2-bootstrap-modal';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
@@ -65,7 +65,7 @@ const appRoutes: Routes = [
     }),
     Ng2SearchPipeModule,
     Ng2FilterPipeModule,
-    BootstrapModalModule,
+    NgbModule.forRoot(),
     LoadingModule.forRoot({
       animationType: ANIMATION_TYPES.circle,
       backdropBackgroundColour: 'rgba(255, 255, 255, .55)',
