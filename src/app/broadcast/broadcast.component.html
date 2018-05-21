@@ -1,0 +1,91 @@
+<div id="page" class="page dashboard broadcast-page">
+  <!-- page begins -->
+
+  <section id="content-section" class="content content-home">
+        <ngx-loading class="overly-spinner" [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+          <!-- page content begins -->
+          <div class="dashboard-wrapper">
+              <div class="dashboard-box">
+                <div class="float broadcast-title-sec">
+                  <div class="page-title">
+                    <h2 class="broadcast-title">Manual  broadcast</h2>
+                    <p class="broadcast-sub-title">Create and manually send instant notifications in three easy steps.</p>
+                  </div>
+                  <div class="edit-moment">
+                    <button class="back-moment-btn" (click)="goBack()" type="reset">Back</button>
+                  </div>
+                </div>
+                <div class="float broadcast-content-sec">
+                  <div class="broadcast-column broadcast-segment">
+                      <div class="float brd-column-title">
+                          <span class="broadcast-steps">1</span>
+                          <h2>Select target audience </h2>
+                      </div>
+                      <div class="float broadcast-sub-content">
+                          <div class="estimated-audience">{{estimatedAudience}}</div>
+                          <h2>Filter by subscriptions</h2>
+                           <div class="float input-checkbox everyone-checkbox">
+                              <input  class="normal" id="everyone" type="checkbox" [(ngModel)]="checkEveryOne"  (click)="clearSubscriptions(segmentDesign[2][0],$event);"/>
+                              <label class="checkbox" for="everyone">Everyone</label>
+                          </div>
+                         <!-- <i class="field-error-icon" *ngIf="tagError.length > 0"></i>
+                          <span class="field-error-message" *ngIf="tagError.length > 0">{{tagError}}</span>
+                          <div class="float input-checkbox" *ngFor="category in segmentDesign[2][0].arg_valid_types track by $index">
+                              <input ng-disabled="segmentDesign[2][0].arg_disabled" class="{{segmentDesign[2][0].arg_style}} audiance-checkbox" id="{{segmentDesign[2][0].arg_name}}-{{$parent.$parent.$index}}{{$index}}"
+                                  type="checkbox" value="{{category[segmentDesign[2][0].arg_valid_type_value]}}" [checked]="checkboxBoolean(segmentDesign[2][0].arg_selected_value, category[segmentDesign[2][0].arg_valid_type_required[0]])"
+                                  (click)="toggleSelection(segmentDesign[2][0], segmentDesign[2][0].arg_selected_value, category[segmentDesign[2][0].arg_valid_type_value], category[segmentDesign[2][0].arg_valid_type_required[0]]);estimateAudience();"
+                              />
+                              <label class="checkbox" for="{{segmentDesign[2][0].arg_name}}-{{$parent.$parent.$index}}{{$index}}">
+                                  {{category[segmentDesign[2][0].arg_valid_type_value]}}
+                              </label>
+                          </div> -->
+                      </div>
+                  </div>
+                 
+              </div>
+                
+
+              
+
+              </div>
+          </div>
+          <!-- page content ends -->
+  </section>
+    <!-- Select app Modal begins -->
+    <div data-backdrop="static" data-keyboard="false" class="modal fade trigger-overlay add-text-overlay app-select-overlay"
+        id="app-modal" role="dialog" [ngStyle]="{'display': 'block'}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form novalidate>
+                    <div class="modal-header">
+                        <h4 class="modal-title schedule-title">Choose your app</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="field-row field-app">
+                            <div class="field-col field-image">
+                                <div class="float">
+                                    <img src="https://s3.amazonaws.com/lava-marketer/assets/images/select_offer.png" />
+                                </div>
+                            </div>
+                            <div class="field-col field-dropDown">
+                                <div class="float">
+                                    <!-- <select ui-nice-select class="drop-select" [(ngModel)]="selectApp" id="select-app" name="selectApp" >
+                                        <option *ngFor="let item of selectAppList">{{item.app_name}}</option>
+
+                                    </select> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" data-dismiss="modal" class="cancel-set-button" (click)="cancelSetApp()">Cancel</button>
+                        <button type="submit" id="setSchedule" class="set-button" (click)="submitSetApp()">SAVE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Select app Modal ends -->
+
+</div>

@@ -19,20 +19,25 @@ import { HomeComponent } from './home/home.component';
 import { LavaService } from './Service/lava.service';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { isActiveNav,pieGraph } from './Directives/general.directive';
+import { isActiveNav, pieGraph } from './Directives/general.directive';
 import { MySharedService } from './Service/MySharedService';
 import { GlobalComponent } from './global/global.component';
 import { UsersettingComponent } from './usersetting/usersetting.component';
+import { BroadcastComponent } from './broadcast/broadcast.component';
+import { ConfigService } from './config/config.service';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch : 'full'},
-  { path: 'login', component: LoginComponent, data: { title: 'Login'} },
-  {path: 'lava', component: HeaderComponent, data: { title: 'lava' },
-  children : [
-          { path: 'home', component: HomeComponent },
-          {path: 'global', component: GlobalComponent},
-          {path: 'usersettings', component: UsersettingComponent}
-  ]},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  {
+    path: 'lava', component: HeaderComponent, data: { title: 'lava' },
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'global', component: GlobalComponent },
+      { path: 'broadcast', component: BroadcastComponent },
+      { path: 'usersettings', component: UsersettingComponent }
+    ]
+  },
   // { path: '**', redirectTo: '/login' }
 ]
 
@@ -48,6 +53,7 @@ const appRoutes: Routes = [
     pieGraph,
     GlobalComponent,
     UsersettingComponent,
+    BroadcastComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +75,7 @@ const appRoutes: Routes = [
   providers: [CookieService,
     LavaService,
     MySharedService,
+    ConfigService
   ],
   bootstrap: [AppComponent]
 })

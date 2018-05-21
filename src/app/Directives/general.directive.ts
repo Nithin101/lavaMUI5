@@ -1,6 +1,7 @@
-import { Directive, ElementRef, Renderer,Renderer2 ,Input} from '@angular/core';
+import { Directive, ElementRef, Renderer, Renderer2, Input } from '@angular/core';
 import { RouterModule, Routes, Router, NavigationStart } from '@angular/router';
 import * as d3 from "d3";
+declare var $ :any;
 
 
 @Directive({
@@ -9,7 +10,6 @@ import * as d3 from "d3";
 export class GeneralDirective {
 
 }
-var $: any;
 
 @Directive({
   selector: '[is-active-nav]'
@@ -23,37 +23,36 @@ export class isActiveNav {
     renderer.setElementStyle(el.nativeElement, 'class', 'active');
     router.events.subscribe((val) => {
       if (this.router.url) {
-      var cp1 = this.router.url.includes("/moment/");
-      var cp2 = this.router.url.includes("/view-moment/");
-      var cp3 = this.router.url.includes("/moment-perfomance/");
-      var cp4 = this.router.url.includes("/engagement-perfomance/");
-      var cp5 = this.router.url.includes("/abtest-perfomance/");
-      var cp6 = this.router.url.includes("/broadcast");
-      console.log('native element',this.el.nativeElement);
-      if (this.router.url === this.el.nativeElement.attributes['href'].value) {
-        // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true);
-        renderer2.addClass(this.el.nativeElement.parentNode, 'active');
-        // renderer2.addClass(this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'), 'active');
-        // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', this.el.nativeElement.parentNode.classList.contains('.has-submenu'))
-    } 
-    else if (cp1 || cp2 ) {
-        $('.design > ul.submenu > li.moments').addClass('active');
-        $('.design > ul.submenu > li.moments').parents('.has-submenu').addClass('active');
-    } else if (cp3) {
-        $('.analyze > ul.submenu > li.gaming').addClass('active');
-        $('.analyze > ul.submenu > li.gaming').parents('.has-submenu').addClass('active');
-    } else if (cp4 ) {
-        $('.analyze > ul.submenu > li.masterpass').addClass('active');
-        $('.analyze > ul.submenu > li.masterpass').parents('.has-submenu').addClass('active');
-    } else if (cp5 ) {
-        $('.analyze > ul.submenu > li.abtest').addClass('active');
-        $('.analyze > ul.submenu > li.abtest').parents('.has-submenu').addClass('active');
-    } else if (cp6) {
-        $('. ').addClass('active');
-    } else {
-      this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', false)
-    }
-    }
+        var cp1 = this.router.url.includes("/moment/");
+        var cp2 = this.router.url.includes("/view-moment/");
+        var cp3 = this.router.url.includes("/moment-perfomance/");
+        var cp4 = this.router.url.includes("/engagement-perfomance/");
+        var cp5 = this.router.url.includes("/abtest-perfomance/");
+        var cp6 = this.router.url.includes("/broadcast");
+        if (this.router.url === this.el.nativeElement.attributes['href'].value) {
+          // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true);
+          renderer2.addClass(this.el.nativeElement.parentNode, 'active');
+          // renderer2.addClass(this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'), 'active');
+          // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', this.el.nativeElement.parentNode.classList.contains('.has-submenu'))
+        }
+        else if (cp1 || cp2) {
+          $('.design > ul.submenu > li.moments').addClass('active');
+          $('.design > ul.submenu > li.moments').parents('.has-submenu').addClass('active');
+        } else if (cp3) {
+          $('.analyze > ul.submenu > li.gaming').addClass('active');
+          $('.analyze > ul.submenu > li.gaming').parents('.has-submenu').addClass('active');
+        } else if (cp4) {
+          $('.analyze > ul.submenu > li.masterpass').addClass('active');
+          $('.analyze > ul.submenu > li.masterpass').parents('.has-submenu').addClass('active');
+        } else if (cp5) {
+          $('.analyze > ul.submenu > li.abtest').addClass('active');
+          $('.analyze > ul.submenu > li.abtest').parents('.has-submenu').addClass('active');
+        } else if (cp6) {
+           $('.home').addClass('active');
+        } else {
+          this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', false)
+        }
+      }
     });
   }
 
@@ -71,9 +70,9 @@ export class editSrc {
 })
 export class pieGraph {
   @Input() percent: number;
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
   ngOnInit() {
-   
+
     let mySvg = d3.select(this.el.nativeElement)
       .append("svg")
       .attr("width", 263)
