@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Renderer, Renderer2, Input } from '@angular/core';
 import { RouterModule, Routes, Router, NavigationStart } from '@angular/router';
-import * as d3 from "d3";
-declare var $ :any;
+import * as d3 from 'd3';
+declare var $: any;
 
 
 @Directive({
@@ -23,19 +23,18 @@ export class isActiveNav {
     renderer.setElementStyle(el.nativeElement, 'class', 'active');
     router.events.subscribe((val) => {
       if (this.router.url) {
-      var cp1 = this.router.url.includes("/moment/");
-      var cp2 = this.router.url.includes("/view-moment/");
-      var cp3 = this.router.url.includes("/moment-perfomance/");
-      var cp4 = this.router.url.includes("/engagement-perfomance/");
-      var cp5 = this.router.url.includes("/abtest-perfomance/");
-      var cp6 = this.router.url.includes("/broadcast");
+      const cp1 = this.router.url.includes('/moment/');
+      const cp2 = this.router.url.includes('/view-moment/');
+      const cp3 = this.router.url.includes('/moment-perfomance/');
+      const cp4 = this.router.url.includes('/engagement-perfomance/');
+      const cp5 = this.router.url.includes('/abtest-perfomance/');
+      const cp6 = this.router.url.includes('/broadcast');
       if (this.router.url === this.el.nativeElement.attributes['href'].value) {
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', true);
         renderer2.addClass(this.el.nativeElement.parentNode, 'active');
         // renderer2.addClass(this.el.nativeElement.parentNode.querySelectorAll('.has-submenu'), 'active');
         // this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', this.el.nativeElement.parentNode.classList.contains('.has-submenu'))
-    } 
-    else if (cp1 || cp2 ) {
+    } else if (cp1 || cp2 ) {
         $('.design > ul.submenu > li.moments').addClass('active');
         $('.design > ul.submenu > li.moments').parents('.has-submenu').addClass('active');
     } else if (cp3) {
@@ -48,7 +47,7 @@ export class isActiveNav {
         $('.analyze > ul.submenu > li.abtest').addClass('active');
         $('.analyze > ul.submenu > li.abtest').parents('.has-submenu').addClass('active');
     } else if (cp6) {
-        $('. ').addClass('active');
+        // $('. ').addClass('active');
     } else {
      this.renderer.setElementClass(this.el.nativeElement.parentNode, 'active', false)
     }
@@ -78,42 +77,42 @@ export class pieGraph {
       .attr("width", 263)
       .attr("height", 117);
 
-    let percent = this.percent;
+      const percent = this.percent;
 
-    let ratio = percent / 100;
+      const ratio = percent / 100;
 
     // Constructs a  pie function 	
-    let pie = d3.pie()
+    const pie = d3.pie()
       .sort(null);
 
-    let width_topmoments = 263,
+      const width_topmoments = 263,
       height_topmoments = 117;
 
-    let radius = 58.5;
+      const radius = 58.5;
 
-    let svg = mySvg.append('g')
+      const svg = mySvg.append('g')
       .attr("class", "group-pie")
       .attr("transform", "translate(" + width_topmoments / 2 + "," + height_topmoments / 2 + ")"); //75
 
     // Background pie chart
-    let arc = d3.arc()
+    const arc = d3.arc()
       .innerRadius(radius)
       .outerRadius(radius - 7)
       .startAngle(0)
       .endAngle(2 * Math.PI);
 
     // Progress pie chart
-    let arcLine = d3.arc()
+    const arcLine = d3.arc()
       .innerRadius(radius)
       .outerRadius(radius - 7)
       .startAngle(0)
       .cornerRadius(25);
 
-    let pathBackground = svg.append('path')
+      const pathBackground = svg.append('path')
       .attr("d", arc)
       .style("fill", "#f5f5f5");
 
-    let pathChart = svg.append('path')
+      const pathChart = svg.append('path')
       .datum({
         endAngle: 0
       })
@@ -121,7 +120,7 @@ export class pieGraph {
       .style("fill", "#03d2ff")
       .attr("transform", "rotate(180)");
 
-    let arcTween = function (transition, newAngle) {
+      const arcTween = function (transition, newAngle) {
       transition.attrTween("d", function (d) {
         let interpolate = d3.interpolate(d.endAngle, newAngle);
         let interpolateCount = d3.interpolate(0, percent);
@@ -132,7 +131,7 @@ export class pieGraph {
       });
     };
 
-    let animate = function () {
+    const animate = function () {
       pathChart.transition()
         .duration(750)
         //.ease('cubic')
