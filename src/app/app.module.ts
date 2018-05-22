@@ -10,6 +10,7 @@ import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -41,8 +42,7 @@ const appRoutes: Routes = [
     ]
   },
   // { path: '**', redirectTo: '/login' }
-         
-]
+];
 
 
 @NgModule({
@@ -67,6 +67,7 @@ const appRoutes: Routes = [
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger'
     }),
+    ModalModule.forRoot(),
     Ng2SearchPipeModule,
     Ng2FilterPipeModule,
     NgbModule.forRoot(),
